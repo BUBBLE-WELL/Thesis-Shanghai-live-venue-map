@@ -1,0 +1,1705 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.404799,
+     31.24631
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0MDLKEG3Y",
+    "display_name": "GT·CH8 LIVE(上海店)",
+    "overall_status": "boundary_case",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.49417,
+     31.26705
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFHL47AW",
+    "display_name": "摩登天空(瑞虹天地月亮湾店)",
+    "overall_status": "boundary_case",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.442668,
+     31.208729
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0J19RX3JH",
+    "display_name": "DS·衡8 live house",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.476427,
+     31.22699
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L0VMI3L8",
+    "display_name": "FG CLUB",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.428645,
+     31.197327
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFHE28PW",
+    "display_name": "Horse露台酒吧·Live House(徐家汇店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.383366,
+     31.178653
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0M6S94LR5",
+    "display_name": "Kiss Me Live House OT PARTYK",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.44813,
+     31.276669
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0J65BG21T",
+    "display_name": "LISTEN LIVEHOUSE(大宁国际店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.222888,
+     31.231066
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0K1GZWV25",
+    "display_name": "M Live House",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.511381,
+     31.233556
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0HGMX0GDR",
+    "display_name": "M-BOX Livehouse",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.467548,
+     31.21189
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B00156F9IZ",
+    "display_name": "MAO Livehouse上海",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.309192,
+     31.194569
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0KK9HTSS0",
+    "display_name": "ME HUB·LIVE HOUSE",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.504571,
+     31.298565
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LUM40X9D",
+    "display_name": "MOSHSPACE摩什空间Live House",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.470812,
+     31.22449
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0JDKR3BP4",
+    "display_name": "MOSSO·LiveHouse(M3香港广场店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.206036,
+     31.039341
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0J0GHBMMP",
+    "display_name": "MYST CLUB",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.472795,
+     31.244512
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L66AK330",
+    "display_name": "OM28E LIVE HOUSE",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.394309,
+     31.219035
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFMGJ62H",
+    "display_name": "古北9唐LIVEHOUSE",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.400574,
+     31.213116
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L1GCB2OE",
+    "display_name": "可游米 live house",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.924807,
+     30.904773
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0K2L5NTSK",
+    "display_name": "壳live house",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.561639,
+     31.108897
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0J0G77UCK",
+    "display_name": "岸live house",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.078627,
+     31.138018
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0GKJGXQNO",
+    "display_name": "恋空Live House音乐餐吧",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.462108,
+     31.268779
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0K3RCYFZ8",
+    "display_name": "拾贰民谣小酒馆(上海静安店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.367447,
+     31.177215
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0MBT5CX1A",
+    "display_name": "无相酒吧Live house",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.415451,
+     31.182444
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFKZZXL7",
+    "display_name": "煤气灯LIVEHOUSE(田尚坊店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.553511,
+     31.120239
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0M6URR3ZX",
+    "display_name": "燃·livehouse",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.42199,
+     31.231374
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFJC7JRJ",
+    "display_name": "瓦肆VAS ear(普陀沪西店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.460653,
+     31.163707
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0K1GH12UJ",
+    "display_name": "瓦肆VASest(徐汇店)",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.586484,
+     31.102025
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L19AGMF3",
+    "display_name": "瓦舍民谣烧烤酒馆",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.448202,
+     31.255655
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0JDZZBY5N",
+    "display_name": "蜚声上海PHASE LIVE HOUSE SHANGHAI",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.572436,
+     31.266727
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0KUFU9FI8",
+    "display_name": "赤红音乐现场",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.523404,
+     31.27583
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LRGYT5WH",
+    "display_name": "響liveshow上海店",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.457562,
+     31.161483
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L3VZH823",
+    "display_name": "響巷创意菜·音乐LiveHouse",
+    "overall_status": "core_candidate",
+    "source": "saojie_31",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.384817,
+     31.193095
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0HAY503VW",
+    "display_name": "7 HERTZ LIVE",
+    "overall_status": "supplementary",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.441571,
+     31.208651
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0KGU5Y44N",
+    "display_name": "JZ Club(上海店)",
+    "overall_status": "supplementary",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.414969,
+     31.212103
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFKX34AX",
+    "display_name": "Specters老卵俱乐部",
+    "overall_status": "supplementary",
+    "source": "yuyintang_family",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.481765,
+     31.253937
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0HRC4JNFM",
+    "display_name": "THE PEARL(乍浦路店)",
+    "overall_status": "supplementary",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.435,
+     31.250664
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFHPDIFD",
+    "display_name": "恺悦·星在文化中心",
+    "overall_status": "supplementary",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.48248,
+     31.240126
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFIJRCE8",
+    "display_name": "林肯爵士乐上海中心(外滩中央商场店)",
+    "overall_status": "supplementary",
+    "source": "showstart_lookup",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.414833,
+     31.212776
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0M6JCEY0J",
+    "display_name": "育音堂小镇B厅 YUYINTOWN BASEMENT",
+    "overall_status": "supplementary",
+    "source": "yuyintang_family",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "B0L3OCYHBO",
+    "parent_child_role": "subvenue",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.414783,
+     31.212726
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0MA4UUS43",
+    "display_name": "育音堂小镇C厅 YUYINTOWN CUBE",
+    "overall_status": "supplementary",
+    "source": "yuyintang_family",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "B0L3OCYHBO",
+    "parent_child_role": "subvenue",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.414874,
+     31.212205
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L3OCYHBO",
+    "display_name": "育音堂小镇YUYINTOWN",
+    "overall_status": "supplementary",
+    "source": "yuyintang_family",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 1,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.417635,
+     31.221024
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFK039C0",
+    "display_name": "育音堂音乐公园",
+    "overall_status": "supplementary",
+    "source": "yuyintang_family",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 1,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "registered",
+    "parent_feature_id": "",
+    "parent_child_role": "parent",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.417237,
+     31.200384
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LDDZGY1Y",
+    "display_name": "CAVE ART VENUE",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.506058,
+     31.211703
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L6SO5BQE",
+    "display_name": "Cream Club奶油俱乐部",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.426734,
+     31.209918
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0KDDC8NNM",
+    "display_name": "EXIT Club",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.410471,
+     31.168385
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L2VU8F84",
+    "display_name": "EncoreSpace·意空间见",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.421961,
+     31.209308
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L6CGIFN1",
+    "display_name": "FENRIR Shanghai",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.474501,
+     31.227408
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0KDMR9922",
+    "display_name": "MAX",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.524204,
+     31.280128
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0H0PHFGDM",
+    "display_name": "YOUNG剧场",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.438948,
+     31.238597
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFH0HZ5Y",
+    "display_name": "上海Chair Club",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.409594,
+     31.169294
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LA2UMZHN",
+    "display_name": "上海LIVERSE音宇宙艺术中心",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.536986,
+     31.22488
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B00155R1FD",
+    "display_name": "上海东方艺术中心",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.536936,
+     31.224578
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFH5W69O",
+    "display_name": "上海东方艺术中心音乐厅",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.260332,
+     31.355375
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFFA2W1B",
+    "display_name": "上海保利大剧院(白银路店)",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.50123,
+     31.253657
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0JRLS4KRA",
+    "display_name": "上海北外滩友邦大剧院",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.44735,
+     31.228651
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B00155KLQC",
+    "display_name": "上海商城剧院",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.385044,
+     31.107022
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B00155Q8KQ",
+    "display_name": "上海城市剧院",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.42475,
+     31.225518
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B00152D49B",
+    "display_name": "上海爱乐乐团",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.460045,
+     31.229541
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFI8Q5CH",
+    "display_name": "上海素凯泰酒店",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.480478,
+     31.15277
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFKOEPBA",
+    "display_name": "交通银行前滩31演艺中心",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.477762,
+     31.237075
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0KD5HRWR2",
+    "display_name": "半笑酒馆·南京东路店·精酿啤酒·脱口秀演出·艺术空间",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.341094,
+     31.222914
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LDLRTG54",
+    "display_name": "回响之地Music Park",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.474738,
+     31.230217
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0FFHTLRD0",
+    "display_name": "大世界",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.421155,
+     31.221037
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0JB9NQRQG",
+    "display_name": "新歌空间",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.465649,
+     31.219821
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LD3RKPGF",
+    "display_name": "绿洲Oasis",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.416324,
+     31.220163
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0M6PMKKMW",
+    "display_name": "聚一场(中山公园又又中心店)",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.473467,
+     31.227132
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0LRKXJX0R",
+    "display_name": "青春无限音乐厅(上海广场店)",
+    "overall_status": "uncertain",
+    "source": "unmatched_events",
+    "has_amap": 1,
+    "has_showstart": 1,
+    "has_xhs": 0,
+    "platform_presence_count": 2,
+    "showstart_grain_summary": "event_card",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "pending_human_review",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.426589,
+     31.20347
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0L6ZS2HCU",
+    "display_name": "SandBar",
+    "overall_status": "supplementary",
+    "source": "amap_lookup_20260712",
+    "has_amap": 1,
+    "has_showstart": 0,
+    "has_xhs": 1,
+    "platform_presence_count": 1,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "review_pending",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     121.47507,
+     31.274256
+    ]
+   },
+   "properties": {
+    "map_feature_id": "B0JABCS6YJ",
+    "display_name": "梦田音乐Live House(上海店)",
+    "overall_status": "boundary_case",
+    "source": "amap_lookup_20260712_mengtian",
+    "has_amap": 0,
+    "has_showstart": 0,
+    "has_xhs": 0,
+    "platform_presence_count": 0,
+    "showstart_grain_summary": "none",
+    "parent_feature_id": "",
+    "parent_child_role": "",
+    "review_flags": "",
+    "crs_conversion": "gcj02_to_wgs84"
+   }
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+﻿map_feature_id,canonical_venue_id,display_name,lng_gcj02,lat_gcj02,lon_wgs84,lat_wgs84,geometry_source,overall_status,source,has_amap,has_showstart,platform_presence_count,showstart_grain_summary,showstart_event_count,parent_feature_id,parent_child_role,bge_text_amap,bge_text_showstart,review_flags
+B0MDLKEG3Y,B0MDLKEG3Y,GT·CH8 LIVE(上海店),121.40945,31.24448,121.404799,31.24631,amap_vmcp,boundary_case,showstart_lookup,1,1,2,registered,2,,,CH8 GT Live Space 体育休闲服务;娱乐场所;娱乐场所,GT·CH8 LIVE（上海店） HipHop|电子|节奏布鲁斯,
+B0FFHL47AW,B0FFHL47AW,摩登天空(瑞虹天地月亮湾店),121.498609,31.265051,121.49417,31.26705,amap_vmcp,boundary_case,showstart_lookup,1,1,2,registered,6,,,摩登天空(瑞虹天地月亮湾店) 体育休闲服务;娱乐场所;酒吧 酒吧,MODERN SKY LAB HipHop|摇滚|极端金属|核|独立|金属,review_pending
+B0J19RX3JH,B0J19RX3JH,DS·衡8 live house,121.447264,31.206838,121.442668,31.208729,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,DS·衡8 live house,,
+B0L0VMI3L8,B0L0VMI3L8,FG CLUB,121.480925,31.225025,121.476427,31.22699,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,FG CLUB,,
+B0FFHE28PW,B0FFHE28PW,Horse露台酒吧·Live House(徐家汇店),121.433268,31.195454,121.428645,31.197327,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,Horse露台酒吧·Live House(徐家汇店),,
+B0M6S94LR5,B0M6S94LR5,Kiss Me Live House OT PARTYK,121.388008,31.176787,121.383366,31.178653,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,Kiss Me Live House OT PARTYK,,
+B0J65BG21T,B0J65BG21T,LISTEN LIVEHOUSE(大宁国际店),121.452718,31.274798,121.44813,31.276669,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,LISTEN LIVEHOUSE(大宁国际店),,
+B0K1GZWV25,B0K1GZWV25,M Live House,121.227322,31.229052,121.222888,31.231066,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,M Live House,,
+B0HGMX0GDR,B0HGMX0GDR,M-BOX Livehouse,121.515756,31.231491,121.511381,31.233556,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,M-BOX Livehouse,,
+B00156F9IZ,B00156F9IZ,MAO Livehouse上海,121.472075,31.209942,121.467548,31.21189,amap_vmcp,core_candidate,saojie_31,1,1,2,registered,11,,,MAO Livehouse上海,上海 MAO Livehouse HipHop|世界音乐|摇滚|流行|独立|电子|轻音乐|金属,review_pending
+B0KK9HTSS0,B0KK9HTSS0,ME HUB·LIVE HOUSE,121.313699,31.192597,121.309192,31.194569,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,ME HUB·LIVE HOUSE,,
+B0LUM40X9D,B0LUM40X9D,MOSHSPACE摩什空间Live House,121.508975,31.296548,121.504571,31.298565,amap_vmcp,core_candidate,saojie_31,1,1,2,registered,6,,,MOSHSPACE摩什空间Live House,MOSH SPACE摩什空间 朋克|极端金属|民谣|独立|金属,review_pending
+B0JDKR3BP4,B0JDKR3BP4,MOSSO·LiveHouse(M3香港广场店),121.475329,31.22254,121.470812,31.22449,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,MOSSO·LiveHouse(M3香港广场店),,
+B0J0GHBMMP,B0J0GHBMMP,MYST CLUB,121.210473,31.037243,121.206036,31.039341,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,MYST CLUB,,
+B0L66AK330,B0L66AK330,OM28E LIVE HOUSE,121.477307,31.242565,121.472795,31.244512,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,OM28E LIVE HOUSE,,
+B0FFMGJ62H,B0FFMGJ62H,古北9唐LIVEHOUSE,121.398959,31.217193,121.394309,31.219035,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,古北9唐LIVEHOUSE,,
+B0L1GCB2OE,B0L1GCB2OE,可游米 live house,121.405224,31.211272,121.400574,31.213116,amap_vmcp,core_candidate,saojie_31,1,1,2,registered,2,,,可游米 live house,可游米live house 动漫,review_pending
+B0K2L5NTSK,B0K2L5NTSK,壳live house,121.928896,30.902409,121.924807,30.904773,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,壳live house,,
+B0J0G77UCK,B0J0G77UCK,岸live house,121.565863,31.106654,121.561639,31.108897,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,岸live house,,
+B0GKJGXQNO,B0GKJGXQNO,恋空Live House音乐餐吧,121.083227,31.136126,121.078627,31.138018,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,恋空Live House音乐餐吧,,
+B0K3RCYFZ8,B0K3RCYFZ8,拾贰民谣小酒馆(上海静安店),121.466656,31.266872,121.462108,31.268779,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,拾贰民谣小酒馆(上海静安店),,
+B0MBT5CX1A,B0MBT5CX1A,无相酒吧Live house,121.372072,31.175334,121.367447,31.177215,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,无相酒吧Live house,,
+B0FFKZZXL7,B0FFKZZXL7,煤气灯LIVEHOUSE(田尚坊店),121.420089,31.180578,121.415451,31.182444,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,煤气灯LIVEHOUSE(田尚坊店),,
+B0M6URR3ZX,B0M6URR3ZX,燃·livehouse,121.557752,31.118015,121.553511,31.120239,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,燃·livehouse,,
+B0FFJC7JRJ,B0FFJC7JRJ,瓦肆VAS ear(普陀沪西店),121.426625,31.229525,121.42199,31.231374,amap_vmcp,core_candidate,saojie_31,1,1,2,registered,14,,,瓦肆VAS ear(普陀沪西店),瓦肆 VAS ear（普陀店） HipHop|动漫|流行|独立|电子,review_pending
+B0K1GH12UJ,B0K1GH12UJ,瓦肆VASest(徐汇店),121.465197,31.161753,121.460653,31.163707,amap_vmcp,core_candidate,saojie_31,1,1,2,registered,1,,,瓦肆VASest(徐汇店),瓦肆 VAS est（徐汇店） HipHop,review_pending
+B0L19AGMF3,B0L19AGMF3,瓦舍民谣烧烤酒馆,121.590677,31.099756,121.586484,31.102025,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,瓦舍民谣烧烤酒馆,,
+B0JDZZBY5N,B0JDZZBY5N,蜚声上海PHASE LIVE HOUSE SHANGHAI,121.452788,31.253775,121.448202,31.255655,amap_vmcp,core_candidate,saojie_31,1,1,2,registered,2,,,蜚声上海PHASE LIVE HOUSE SHANGHAI,上海 PHASE蜚声LIVEHOUSE HipHop,review_pending
+B0KUFU9FI8,B0KUFU9FI8,赤红音乐现场,121.576656,31.26455,121.572436,31.266727,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,赤红音乐现场,,
+B0LRGYT5WH,B0LRGYT5WH,響liveshow上海店,121.527742,31.27375,121.523404,31.27583,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,響liveshow上海店,,
+B0L3VZH823,B0L3VZH823,響巷创意菜·音乐LiveHouse,121.462115,31.159536,121.457562,31.161483,amap_vmcp,core_candidate,saojie_31,1,0,1,none,0,,,響巷创意菜·音乐LiveHouse,,
+B0HAY503VW,B0HAY503VW,7 HERTZ LIVE,121.389461,31.191237,121.384817,31.193095,amap_vmcp,supplementary,showstart_lookup,1,1,2,registered,11,,,7 HERTZ LIVE 体育休闲服务;娱乐场所;酒吧 剧院,7HERTZ LIVE HipHop|动漫|摇滚|流行|轻音乐|金属,
+B0KGU5Y44N,B0KGU5Y44N,JZ Club(上海店),121.446169,31.206762,121.441571,31.208651,amap_vmcp,supplementary,showstart_lookup,1,1,2,registered,13,,,JZ Club(上海店) 体育休闲服务;娱乐场所;酒吧 酒吧,上海 JZ CLUB 爵士,review_pending
+B0FFKX34AX,B0FFKX34AX,Specters老卵俱乐部,121.419611,31.210252,121.414969,31.212103,amap_vmcp,supplementary,yuyintang_family,1,0,1,none,0,,,Specters老卵俱乐部 体育休闲服务;运动场馆;运动场所 livehouse,,
+B0HRC4JNFM,B0HRC4JNFM,THE PEARL(乍浦路店),121.486247,31.251969,121.481765,31.253937,amap_vmcp,supplementary,showstart_lookup,1,1,2,registered,8,,,THE PEARL(乍浦路店) 体育休闲服务;影剧院;剧场 剧场,梦想剧场珍珠剧场 THE PEARL 摇滚|朋克|流行|金属,
+B0FFHPDIFD,B0FFHPDIFD,恺悦·星在文化中心,121.439616,31.248806,121.435,31.250664,amap_vmcp,supplementary,showstart_lookup,1,1,2,registered,10,,,恺悦·星在文化中心 科教文化服务;文化宫;文化宫 活动中心,星在文化中心 HipHop|世界音乐|独立|电子|金属,
+B0FFIJRCE8,B0FFIJRCE8,林肯爵士乐上海中心(外滩中央商场店),121.486959,31.23815,121.48248,31.240126,amap_vmcp,supplementary,showstart_lookup,1,1,2,registered,4,,,林肯爵士乐上海中心(外滩中央商场店) 体育休闲服务;影剧院;剧场 音乐厅,林肯爵士乐上海中心 世界音乐|流行|爵士,
+B0M6JCEY0J,B0M6JCEY0J,育音堂小镇B厅 YUYINTOWN BASEMENT,121.419475,31.210925,121.414833,31.212776,amap_vmcp,supplementary,yuyintang_family,1,1,2,registered,8,B0L3OCYHBO,subvenue,育音堂小镇B厅 科教文化服务;科教文化场所;科教文化场所 科教文化场所,育音堂小镇 B厅 YUYINTOWN BASEMENT 摇滚|朋克|民谣|爵士|独立,
+B0MA4UUS43,B0MA4UUS43,育音堂小镇C厅 YUYINTOWN CUBE,121.419425,31.210875,121.414783,31.212726,amap_vmcp,supplementary,yuyintang_family,1,1,2,registered,7,B0L3OCYHBO,subvenue,育音堂小镇C厅 科教文化服务;科教文化场所;科教文化场所 科教文化场所,育音堂小镇 C厅 YUYINTOWN CUBE 世界音乐|放克|朋克|流行|爵士|电子|轻音乐|金属,
+B0L3OCYHBO,B0L3OCYHBO,育音堂小镇YUYINTOWN,121.419516,31.210354,121.414874,31.212205,amap_vmcp,supplementary,yuyintang_family,1,0,1,none,0,,,育音堂小镇YUYINTOWN 风景名胜;风景名胜;风景名胜 风景名胜,,review_pending
+B0FFK039C0,B0FFK039C0,育音堂音乐公园,121.422275,31.219175,121.417635,31.221024,amap_vmcp,supplementary,yuyintang_family,1,1,2,registered,3,,parent,育音堂音乐公园 风景名胜;公园广场;水族馆|体育休闲服务;娱乐场所;娱乐场所 酒吧,育音堂音乐公园 动漫|摇滚|流行,review_pending
+B0LDDZGY1Y,B0LDDZGY1Y,CAVE ART VENUE,121.421875,31.198525,121.417237,31.200384,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,11,,,"CAVE ART VENUE 体育休闲服务;娱乐场所;娱乐场所 体育休闲服务,娱乐场所,娱乐场所",,pending_human_review
+B0L6SO5BQE,B0L6SO5BQE,Cream Club奶油俱乐部,121.51045,31.209643,121.506058,31.211703,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,4,,,"Cream Club奶油俱乐部 体育休闲服务;娱乐场所;酒吧 体育休闲服务,娱乐场所,酒吧",,pending_human_review
+B0KDDC8NNM,B0KDDC8NNM,EXIT Club,121.431361,31.208054,121.426734,31.209918,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,EXIT Club 体育休闲服务;娱乐场所;酒吧 酒吧,,pending_human_review
+B0L2VU8F84,B0L2VU8F84,EncoreSpace·意空间见,121.415112,31.166515,121.410471,31.168385,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,5,,,EncoreSpace·意空间见 体育休闲服务;娱乐场所;娱乐场所 音乐厅,,pending_human_review
+B0L6CGIFN1,B0L6CGIFN1,FENRIR Shanghai,121.426594,31.207449,121.421961,31.209308,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,"FENRIR Shanghai 餐饮服务;餐饮相关场所;餐饮相关 餐饮服务,餐饮相关场所,餐饮相关",,pending_human_review
+B0KDMR9922,B0KDMR9922,MAX,121.479006,31.225449,121.474501,31.227408,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,MAX 体育休闲服务;娱乐场所;酒吧 酒吧,,pending_human_review
+B0H0PHFGDM,B0H0PHFGDM,YOUNG剧场,121.528539,31.278047,121.524204,31.280128,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,YOUNG剧场 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B0FFH0HZ5Y,B0FFH0HZ5Y,上海Chair Club,121.443555,31.236727,121.438948,31.238597,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海Chair Club 体育休闲服务;体育休闲服务场所;体育休闲服务场所 酒吧,,pending_human_review
+B0LA2UMZHN,B0LA2UMZHN,上海LIVERSE音宇宙艺术中心,121.414236,31.167425,121.409594,31.169294,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海LIVERSE音宇宙艺术中心 体育休闲服务;影剧院;音乐厅 音乐厅,,pending_human_review
+B00155R1FD,B00155R1FD,上海东方艺术中心,121.541278,31.222743,121.536986,31.22488,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,5,,,上海东方艺术中心 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B0FFH5W69O,B0FFH5W69O,上海东方艺术中心音乐厅,121.541228,31.222441,121.536936,31.224578,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海东方艺术中心音乐厅 体育休闲服务;影剧院;音乐厅|体育休闲服务;影剧院;剧场 音乐厅,,pending_human_review
+B0FFFA2W1B,B0FFFA2W1B,上海保利大剧院(白银路店),121.264775,31.353406,121.260332,31.355375,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,2,,,上海保利大剧院(白银路店) 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B0JRLS4KRA,B0JRLS4KRA,上海北外滩友邦大剧院,121.505643,31.251631,121.50123,31.253657,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海北外滩友邦大剧院 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B00155KLQC,B00155KLQC,上海商城剧院,121.451936,31.22676,121.44735,31.228651,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,2,,,上海商城剧院 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B00155Q8KQ,B00155Q8KQ,上海城市剧院,121.389681,31.105119,121.385044,31.107022,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海城市剧院 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B00152D49B,B00152D49B,上海爱乐乐团,121.429381,31.223663,121.42475,31.225518,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海爱乐乐团 科教文化服务;文艺团体;文艺团体 文艺团体,,pending_human_review
+B0FFI8Q5CH,B0FFI8Q5CH,上海素凯泰酒店,121.464596,31.227621,121.460045,31.229541,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,上海素凯泰酒店 住宿服务;宾馆酒店;五星级宾馆 豪华型,,pending_human_review
+B0FFKOEPBA,B0FFKOEPBA,交通银行前滩31演艺中心,121.484956,31.150756,121.480478,31.15277,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,交通银行前滩31演艺中心 体育休闲服务;影剧院;剧场 剧院,,pending_human_review
+B0KD5HRWR2,B0KD5HRWR2,半笑酒馆·南京东路店·精酿啤酒·脱口秀演出·艺术空间,121.482257,31.235111,121.477762,31.237075,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,2,,,半笑酒馆·南京东路店·精酿啤酒·脱口秀演出·艺术空间 体育休闲服务;娱乐场所;酒吧 酒吧,,pending_human_review
+B0LDLRTG54,B0LDLRTG54,回响之地Music Park,121.345675,31.221015,121.341094,31.222914,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,2,,,回响之地Music Park 体育休闲服务;娱乐场所;KTV 音乐厅,,pending_human_review
+B0FFHTLRD0,B0FFHTLRD0,大世界,121.479242,31.228258,121.474738,31.230217,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,大世界 购物服务;商场;购物中心 剧院,,pending_human_review
+B0JB9NQRQG,B0JB9NQRQG,新歌空间,121.425791,31.219184,121.421155,31.221037,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,5,,,新歌空间 体育休闲服务;休闲场所;休闲场所 活动中心,,pending_human_review
+B0LD3RKPGF,B0LD3RKPGF,绿洲Oasis,121.470182,31.217882,121.465649,31.219821,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,1,,,"绿洲Oasis 体育休闲服务;娱乐场所;娱乐场所 体育休闲服务,娱乐场所,娱乐场所",,pending_human_review
+B0M6PMKKMW,B0M6PMKKMW,聚一场(中山公园又又中心店),121.420965,31.218314,121.416324,31.220163,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,2,,,"聚一场(中山公园又又中心店) 体育休闲服务;体育休闲服务场所;体育休闲服务场所 体育休闲服务,体育休闲服务场所,体育休闲服务场所",,pending_human_review
+B0LRKXJX0R,B0LRKXJX0R,青春无限音乐厅(上海广场店),121.477975,31.225175,121.473467,31.227132,amap_vmcp,uncertain,unmatched_events,1,1,2,event_card,5,,,青春无限音乐厅(上海广场店) 体育休闲服务;娱乐场所;娱乐场所 音乐厅,,pending_human_review
+B0L6ZS2HCU,B0L6ZS2HCU,SandBar,121.431215,31.201603,121.426589,31.20347,amap_vmcp,supplementary,amap_lookup_20260712,1,0,1,none,0,,,SandBar 购物服务;服装鞋帽皮具店;服装鞋帽皮具店 清吧,,review_pending
+B0JABCS6YJ,B0JABCS6YJ,梦田音乐Live House(上海店),121.479577,31.272316,121.47507,31.274256,amap_vmcp,boundary_case,amap_lookup_20260712_mengtian,0,0,0,none,0,,,,,
