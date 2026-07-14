@@ -1,5 +1,10 @@
 # Interactive venue map
 
+github pages link
+```
+https://bubble-well.github.io/Thesis-Shanghai-live-venue-map/
+```
+
 Open `interactive_venue_map.html` in a browser to explore the formal Shanghai venue inventory (n=67).
 
 Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/` and Leaflet/CartoDB from the internet, so an internet connection is required for the basemap and Leaflet library.
