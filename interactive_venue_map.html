@@ -40,9 +40,6 @@
         .legend-item { margin: 6px 0; display: flex; align-items: center; gap: 8px; }
         .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
         .layer-note { color: #666; font-size: 11px; margin-top: 8px; line-height: 1.35; }
-        .discovery-control { background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.18); font-size: 12px; min-width: 190px; }
-        .discovery-control label { display: block; font-weight: bold; margin-bottom: 4px; }
-        .discovery-control select { width: 100%; margin-bottom: 7px; padding: 3px; }
     </style>
 </head>
 <body>
@@ -71,11 +68,6 @@
             xhs: L.layerGroup().addTo(map),
             bge: L.layerGroup().addTo(map)
         };
-        const discoveryLayer = L.layerGroup().addTo(map);
-        const discoveryMarkers = [];
-        let discoveryRecords = [];
-        let discoveryMode = 'showstart_genre';
-        let discoveryKeyword = '';
 
         function parseCsv(text) {
             const rows = []; let row = []; let cell = ''; let quoted = false;
@@ -97,30 +89,6 @@
         const csv = url => fetch(url).then(r => { if (!r.ok) throw new Error(`${url}: ${r.status}`); return r.text(); }).then(parseCsv);
         const num = value => value === '' || value == null ? '—' : Number(value).toLocaleString(undefined, { maximumFractionDigits: 2 });
         const val = value => value === '' || value == null ? '—' : value;
-        const numeric = value => value === '' || value == null || Number.isNaN(Number(value)) ? null : Number(value);
-        const heatColor = (t) => `hsl(${Math.round(220 - 205 * t)}, 85%, ${Math.round(42 + 18 * t)}%)`;
-        const discoveryScore = record => {
-            if (discoveryMode === 'showstart_genre') return record.genres.includes(discoveryKeyword) ? numeric(record.eventCount) || 1 : null;
-            if (discoveryMode === 'showstart_events') return numeric(record.eventCount);
-            if (discoveryMode === 'amap_similarity') return numeric(record.amapCosine);
-            if (discoveryMode === 'xhs_likes') return numeric(record.likes);
-            if (discoveryMode === 'xhs_saves') return numeric(record.saves);
-            if (discoveryMode === 'cross_bge') return numeric(record.crossCosine);
-            return null;
-        };
-        function renderDiscovery() {
-            discoveryLayer.clearLayers();
-            discoveryMarkers.length = 0;
-            const scored = discoveryRecords.map(record => ({ record, score: discoveryScore(record) })).filter(x => x.score !== null);
-            const values = scored.map(x => x.score), min = Math.min(...values), max = Math.max(...values);
-            scored.forEach(({ record, score }) => {
-                const t = max === min ? 1 : (score - min) / (max - min);
-                const marker = L.circleMarker([record.lat, record.lng], { color: heatColor(t), fillColor: heatColor(t), fillOpacity: 0.85, weight: 1, radius: 5 + 7 * t });
-                marker.bindTooltip(`${record.name}: ${score.toFixed(2)}`, { sticky: true });
-                marker.bindPopup(record.popup);
-                discoveryLayer.addLayer(marker); discoveryMarkers.push(marker);
-            });
-        }
 
         Promise.all([
             fetch('data/venue_master_for_map.geojson').then(r => r.json()),
@@ -150,8 +118,6 @@
                     ${section('Cross-platform BGE', b ? `Captions: ${num(b.n_captions)}<br>Mean cosine: ${num(b.mean)}<br>P10/P50/P90: ${num(b.p10)} / ${num(b.p50)} / ${num(b.p90)}` : 'No BGE pair summary')}
                 </div>`;
                 const coords = feature.geometry.coordinates;
-                const genreText = showstart[id]?.genre_names || '';
-                discoveryRecords.push({ id, name: n.canonical_name_en || p.display_name, lat: coords[1], lng: coords[0], genres: genreText.split('|').filter(Boolean), eventCount: showstart[id]?.event_count || d.showstart_event_count, amapCosine: a?.category_keytag_cosine, likes: x?.likes_rate, saves: x?.saves_rate, crossCosine: b?.mean, popup });
                 Object.entries(layerGroups).forEach(([layer, group]) => {
                     const present = layer === 'bge' ? Boolean(b) : layer === 'amap' ? d.has_amap === '1' : layer === 'showstart' ? d.has_showstart === '1' : d.has_xhs === '1' || Boolean(x);
                     if (!present) return;
@@ -160,7 +126,6 @@
                     marker.bindPopup(popup); group.addLayer(marker);
                 });
             });
-            renderDiscovery();
             console.log(`Loaded formal inventory: ${formal.length} venues`);
         }).catch(err => console.error('Could not load map data:', err));
         L.control.layers(null, {
@@ -169,24 +134,6 @@
             'XHS': layerGroups.xhs,
             'Cross-platform BGE': layerGroups.bge
         }, { collapsed: false, position: 'topright' }).addTo(map);
-
-        const discoveryControl = L.control({ position: 'topleft' });
-        discoveryControl.onAdd = () => {
-            const div = L.DomUtil.create('div', 'discovery-control');
-            div.innerHTML = `<label>Discovery mode</label><select id="discovery-mode">
-                <option value="showstart_genre">ShowStart genre</option><option value="showstart_events">ShowStart event count</option>
-                <option value="amap_similarity">Amap category–keytag BGE</option><option value="xhs_likes">XHS mean likes</option>
-                <option value="xhs_saves">XHS mean saves</option><option value="cross_bge">Cross-platform BGE</option>
-            </select><select id="discovery-keyword"></select><div class="layer-note">Brighter/larger = higher value. This is a discovery overlay, not a new thesis index.</div>`;
-            L.DomEvent.disableClickPropagation(div);
-            return div;
-        };
-        discoveryControl.addTo(map);
-        setTimeout(() => {
-            const mode = document.getElementById('discovery-mode'), keyword = document.getElementById('discovery-keyword');
-            const updateKeywords = () => { const genres = [...new Set(discoveryRecords.flatMap(r => r.genres))].sort(); keyword.innerHTML = genres.map(g => `<option>${g}</option>`).join(''); keyword.style.display = mode.value === 'showstart_genre' ? 'block' : 'none'; discoveryMode = mode.value; discoveryKeyword = keyword.value; renderDiscovery(); };
-            mode.addEventListener('change', updateKeywords); keyword.addEventListener('change', () => { discoveryKeyword = keyword.value; renderDiscovery(); }); updateKeywords();
-        }, 0);
 
         const legend = L.control({ position: 'bottomright' });
         legend.onAdd = () => {
