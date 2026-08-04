@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="715.061031pt" height="724.5648pt" viewBox="0 0 715.061031 724.5648" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-04T08:40:54.135364</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 724.5648 
+L 715.061031 724.5648 
+L 715.061031 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 105.979563 679.176 
+L 314.962131 679.176 
+L 314.962131 51.264 
+L 105.979563 51.264 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 105.979563 67.381527 
+L 314.962131 67.381527 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 105.979563 398.4624 
+L 314.962131 398.4624 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 105.979563 460.917818 
+L 314.962131 460.917818 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 105.979563 506.584145 
+L 314.962131 506.584145 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 105.979563 535.461382 
+L 314.962131 535.461382 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 105.979563 564.338618 
+L 314.962131 564.338618 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 105.979563 593.215855 
+L 314.962131 593.215855 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_8">
+      <path d="M 105.979563 679.176 
+L 105.979563 51.264 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_9">
+      <defs>
+       <path id="mc34a6c939e" d="M 0 0 
+L 0 3.5 
+" style="stroke: #1a1a1a; stroke-width: 0.7"/>
+      </defs>
+      <g>
+       <use xlink:href="#mc34a6c939e" x="105.979563" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="105.979563" y="691.771625" transform="rotate(-0 105.979563 691.771625)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_10">
+      <path d="M 143.297878 679.176 
+L 143.297878 51.264 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="143.297878" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="143.297878" y="691.771625" transform="rotate(-0 143.297878 691.771625)">2</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_12">
+      <path d="M 180.616194 679.176 
+L 180.616194 51.264 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="180.616194" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="180.616194" y="691.771625" transform="rotate(-0 180.616194 691.771625)">4</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_14">
+      <path d="M 217.93451 679.176 
+L 217.93451 51.264 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="217.93451" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="217.93451" y="691.771625" transform="rotate(-0 217.93451 691.771625)">6</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_16">
+      <path d="M 255.252826 679.176 
+L 255.252826 51.264 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="255.252826" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="255.252826" y="691.771625" transform="rotate(-0 255.252826 691.771625)">8</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_18">
+      <path d="M 292.571142 679.176 
+L 292.571142 51.264 
+" clip-path="url(#p4b51ce5bb9)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="292.571142" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="292.571142" y="691.771625" transform="rotate(-0 292.571142 691.771625)">10</text>
+     </g>
+    </g>
+    <g id="text_7">
+     <text style="fill: #25262b; font: 7.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="210.470847" y="703.786531" transform="rotate(-0 210.470847 703.786531)">Rank-1 anchor strength, |z|</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_20"/>
+     <g id="text_8">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="76.950977" transform="rotate(-0 101.979563 76.950977)">Chair Club Shanghai</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_21"/>
+     <g id="text_9">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="93.721857" transform="rotate(-0 101.979563 93.721857)">Xinge Space</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_22"/>
+     <g id="text_10">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="110.529159" transform="rotate(-0 101.979563 110.529159)">MODERN SKY LAB</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_23"/>
+     <g id="text_11">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="127.318249" transform="rotate(-0 101.979563 127.318249)">Shanghai Oriental Art Center</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_24"/>
+     <g id="text_12">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="144.10734" transform="rotate(-0 101.979563 144.10734)">CAVE ART VENUE</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_25"/>
+     <g id="text_13">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="160.896431" transform="rotate(-0 101.979563 160.896431)">EXIT Club</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_26"/>
+     <g id="text_14">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="177.685522" transform="rotate(-0 101.979563 177.685522)">MOSH SPACE</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_27"/>
+     <g id="text_15">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="194.474613" transform="rotate(-0 101.979563 194.474613)">Gubei 9 Tang Livehouse</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_28"/>
+     <g id="text_16">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="211.263704" transform="rotate(-0 101.979563 211.263704)">Cream Club</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_29"/>
+     <g id="text_17">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="228.052795" transform="rotate(-0 101.979563 228.052795)">Oasis Livehouse</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_30"/>
+     <g id="text_18">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="244.841886" transform="rotate(-0 101.979563 244.841886)">MAX SHANGHAI</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_31"/>
+     <g id="text_19">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="261.630977" transform="rotate(-0 101.979563 261.630977)">JZ Club</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_32"/>
+     <g id="text_20">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="278.420068" transform="rotate(-0 101.979563 278.420068)">Jazz at Lincoln Center Shanghai</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_33"/>
+     <g id="text_21">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="295.209159" transform="rotate(-0 101.979563 295.209159)">GT·CH8 LIVE</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_34"/>
+     <g id="text_22">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="311.998249" transform="rotate(-0 101.979563 311.998249)">VAS ear</text>
+     </g>
+    </g>
+    <g id="ytick_16">
+     <g id="line2d_35"/>
+     <g id="text_23">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="328.78734" transform="rotate(-0 101.979563 328.78734)">PHASE LIVEHOUSE</text>
+     </g>
+    </g>
+    <g id="ytick_17">
+     <g id="line2d_36"/>
+     <g id="text_24">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="345.576431" transform="rotate(-0 101.979563 345.576431)">MAO Livehouse Shanghai</text>
+     </g>
+    </g>
+    <g id="ytick_18">
+     <g id="line2d_37"/>
+     <g id="text_25">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="362.365522" transform="rotate(-0 101.979563 362.365522)">Gaslight Livehouse</text>
+     </g>
+    </g>
+    <g id="ytick_19">
+     <g id="line2d_38"/>
+     <g id="text_26">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="379.154613" transform="rotate(-0 101.979563 379.154613)">Banxiao Bar</text>
+     </g>
+    </g>
+    <g id="ytick_20">
+     <g id="line2d_39"/>
+     <g id="text_27">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="408.031849" transform="rotate(-0 101.979563 408.031849)">Qingchun Wuxian Concert Hall</text>
+     </g>
+    </g>
+    <g id="ytick_21">
+     <g id="line2d_40"/>
+     <g id="text_28">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="424.82094" transform="rotate(-0 101.979563 424.82094)">Echo Space Music Park</text>
+     </g>
+    </g>
+    <g id="ytick_22">
+     <g id="line2d_41"/>
+     <g id="text_29">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="441.610031" transform="rotate(-0 101.979563 441.610031)">EncoreSpace</text>
+     </g>
+    </g>
+    <g id="ytick_23">
+     <g id="line2d_42"/>
+     <g id="text_30">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="470.487268" transform="rotate(-0 101.979563 470.487268)">FENRIR Shanghai</text>
+     </g>
+    </g>
+    <g id="ytick_24">
+     <g id="line2d_43"/>
+     <g id="text_31">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="487.276359" transform="rotate(-0 101.979563 487.276359)">M-BOX Livehouse</text>
+     </g>
+    </g>
+    <g id="ytick_25">
+     <g id="line2d_44"/>
+     <g id="text_32">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="516.153595" transform="rotate(-0 101.979563 516.153595)">Xingzai Culture Center</text>
+     </g>
+    </g>
+    <g id="ytick_26">
+     <g id="line2d_45"/>
+     <g id="text_33">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="545.030831" transform="rotate(-0 101.979563 545.030831)">THE PEARL</text>
+     </g>
+    </g>
+    <g id="ytick_27">
+     <g id="line2d_46"/>
+     <g id="text_34">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="573.908068" transform="rotate(-0 101.979563 573.908068)">Sand Bar</text>
+     </g>
+    </g>
+    <g id="ytick_28">
+     <g id="line2d_47"/>
+     <g id="text_35">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="602.785304" transform="rotate(-0 101.979563 602.785304)">keyoumi live house</text>
+     </g>
+    </g>
+    <g id="ytick_29">
+     <g id="line2d_48"/>
+     <g id="text_36">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="619.556184" transform="rotate(-0 101.979563 619.556184)">Yuyintang</text>
+     </g>
+    </g>
+    <g id="ytick_30">
+     <g id="line2d_49"/>
+     <g id="text_37">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="636.363486" transform="rotate(-0 101.979563 636.363486)">Shanghai Poly Grand Theatre</text>
+     </g>
+    </g>
+    <g id="ytick_31">
+     <g id="line2d_50"/>
+     <g id="text_38">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="653.152577" transform="rotate(-0 101.979563 653.152577)">Yuyintang Music Park</text>
+     </g>
+    </g>
+    <g id="ytick_32">
+     <g id="line2d_51"/>
+     <g id="text_39">
+      <text style="fill: #1a1a1a; font: 6.3px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: end" x="101.979563" y="669.941668" transform="rotate(-0 101.979563 669.941668)">VAS est</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 105.979563 68.724655 
+L 256.525999 68.724655 
+L 256.525999 80.141236 
+L 105.979563 80.141236 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 105.979563 85.513745 
+L 285.974146 85.513745 
+L 285.974146 96.930327 
+L 105.979563 96.930327 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 105.979563 102.302836 
+L 233.61076 102.302836 
+L 233.61076 113.719418 
+L 105.979563 113.719418 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 105.979563 119.091927 
+L 264.467599 119.091927 
+L 264.467599 130.508509 
+L 105.979563 130.508509 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 105.979563 135.881018 
+L 276.340377 135.881018 
+L 276.340377 147.2976 
+L 105.979563 147.2976 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 105.979563 152.670109 
+L 265.912968 152.670109 
+L 265.912968 164.086691 
+L 105.979563 164.086691 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 105.979563 169.4592 
+L 224.433372 169.4592 
+L 224.433372 180.875782 
+L 105.979563 180.875782 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 105.979563 186.248291 
+L 255.083207 186.248291 
+L 255.083207 197.664873 
+L 105.979563 197.664873 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 105.979563 203.037382 
+L 249.617526 203.037382 
+L 249.617526 214.453964 
+L 105.979563 214.453964 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 105.979563 219.826473 
+L 282.544504 219.826473 
+L 282.544504 231.243055 
+L 105.979563 231.243055 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 105.979563 236.615564 
+L 260.118699 236.615564 
+L 260.118699 248.032145 
+L 105.979563 248.032145 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 105.979563 253.404655 
+L 251.23736 253.404655 
+L 251.23736 264.821236 
+L 105.979563 264.821236 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 105.979563 270.193745 
+L 253.096304 270.193745 
+L 253.096304 281.610327 
+L 105.979563 281.610327 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 105.979563 286.982836 
+L 237.360714 286.982836 
+L 237.360714 298.399418 
+L 105.979563 298.399418 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 105.979563 303.771927 
+L 246.688305 303.771927 
+L 246.688305 315.188509 
+L 105.979563 315.188509 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 105.979563 320.561018 
+L 222.372205 320.561018 
+L 222.372205 331.9776 
+L 105.979563 331.9776 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 105.979563 337.350109 
+L 249.131057 337.350109 
+L 249.131057 348.766691 
+L 105.979563 348.766691 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 105.979563 354.1392 
+L 225.005467 354.1392 
+L 225.005467 365.555782 
+L 105.979563 365.555782 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 105.979563 370.928291 
+L 253.832516 370.928291 
+L 253.832516 382.344873 
+L 105.979563 382.344873 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 105.979563 399.805527 
+L 259.746646 399.805527 
+L 259.746646 411.222109 
+L 105.979563 411.222109 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 105.979563 416.594618 
+L 252.590857 416.594618 
+L 252.590857 428.0112 
+L 105.979563 428.0112 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 105.979563 433.383709 
+L 268.160193 433.383709 
+L 268.160193 444.800291 
+L 105.979563 444.800291 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 105.979563 462.260945 
+L 289.579476 462.260945 
+L 289.579476 473.677527 
+L 105.979563 473.677527 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 105.979563 479.050036 
+L 262.851717 479.050036 
+L 262.851717 490.466618 
+L 105.979563 490.466618 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_27">
+    <path d="M 105.979563 507.927273 
+L 264.486673 507.927273 
+L 264.486673 519.343855 
+L 105.979563 519.343855 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 105.979563 536.804509 
+L 271.019775 536.804509 
+L 271.019775 548.221091 
+L 105.979563 548.221091 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 105.979563 565.681745 
+L 295.924258 565.681745 
+L 295.924258 577.098327 
+L 105.979563 577.098327 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 105.979563 594.558982 
+L 241.660213 594.558982 
+L 241.660213 605.975564 
+L 105.979563 605.975564 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 105.979563 611.348073 
+L 238.837761 611.348073 
+L 238.837761 622.764655 
+L 105.979563 622.764655 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 105.979563 628.137164 
+L 259.35931 628.137164 
+L 259.35931 639.553745 
+L 105.979563 639.553745 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_33">
+    <path d="M 105.979563 644.926255 
+L 251.560072 644.926255 
+L 251.560072 656.342836 
+L 105.979563 656.342836 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_34">
+    <path d="M 105.979563 661.715345 
+L 252.583951 661.715345 
+L 252.583951 673.131927 
+L 105.979563 673.131927 
+z
+" clip-path="url(#p4b51ce5bb9)" style="fill: #2c5f8a; opacity: 0.88"/>
+   </g>
+   <g id="patch_35">
+    <path d="M 105.979563 679.176 
+L 105.979563 51.264 
+" style="fill: none; stroke: #c9ced3; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_36">
+    <path d="M 105.979563 679.176 
+L 314.962131 679.176 
+" style="fill: none; stroke: #c9ced3; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_40">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="76.250524" transform="rotate(-0 110.45776 76.250524)">体育事业</text>
+   </g>
+   <g id="text_41">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="258.765098" y="76.112828" transform="rotate(-0 258.765098 76.112828)">8.1</text>
+   </g>
+   <g id="text_42">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="93.039614" transform="rotate(-0 110.45776 93.039614)">体育设施</text>
+   </g>
+   <g id="text_43">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="288.213245" y="92.901919" transform="rotate(-0 288.213245 92.901919)">9.6</text>
+   </g>
+   <g id="text_44">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="109.828705" transform="rotate(-0 110.45776 109.828705)">体育事业</text>
+   </g>
+   <g id="text_45">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="235.849859" y="109.69101" transform="rotate(-0 235.849859 109.69101)">6.8</text>
+   </g>
+   <g id="text_46">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="126.617796" transform="rotate(-0 110.45776 126.617796)">休闲业</text>
+   </g>
+   <g id="text_47">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="266.706697" y="126.480101" transform="rotate(-0 266.706697 126.480101)">8.5</text>
+   </g>
+   <g id="text_48">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="143.406887" transform="rotate(-0 110.45776 143.406887)">体育用品业</text>
+   </g>
+   <g id="text_49">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="278.579476" y="143.269192" transform="rotate(-0 278.579476 143.269192)">9.1</text>
+   </g>
+   <g id="text_50">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="160.195978" transform="rotate(-0 110.45776 160.195978)">体育事业</text>
+   </g>
+   <g id="text_51">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="268.152067" y="160.058283" transform="rotate(-0 268.152067 160.058283)">8.6</text>
+   </g>
+   <g id="text_52">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="176.985069" transform="rotate(-0 110.45776 176.985069)">体育设施</text>
+   </g>
+   <g id="text_53">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="226.672471" y="176.847374" transform="rotate(-0 226.672471 176.847374)">6.3</text>
+   </g>
+   <g id="text_54">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="193.77416" transform="rotate(-0 110.45776 193.77416)">体育事业</text>
+   </g>
+   <g id="text_55">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="257.322306" y="193.636465" transform="rotate(-0 257.322306 193.636465)">8.0</text>
+   </g>
+   <g id="text_56">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="210.563251" transform="rotate(-0 110.45776 210.563251)">体育用品业</text>
+   </g>
+   <g id="text_57">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="251.856625" y="210.425556" transform="rotate(-0 251.856625 210.425556)">7.7</text>
+   </g>
+   <g id="text_58">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="227.352342" transform="rotate(-0 110.45776 227.352342)">体育用品业</text>
+   </g>
+   <g id="text_59">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="284.783603" y="227.214646" transform="rotate(-0 284.783603 227.214646)">9.5</text>
+   </g>
+   <g id="text_60">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="244.141433" transform="rotate(-0 110.45776 244.141433)">体育事业</text>
+   </g>
+   <g id="text_61">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="262.357798" y="244.003737" transform="rotate(-0 262.357798 244.003737)">8.3</text>
+   </g>
+   <g id="text_62">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="260.930524" transform="rotate(-0 110.45776 260.930524)">体育事业</text>
+   </g>
+   <g id="text_63">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="253.476459" y="260.792828" transform="rotate(-0 253.476459 260.792828)">7.8</text>
+   </g>
+   <g id="text_64">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="277.719614" transform="rotate(-0 110.45776 277.719614)">体育中心</text>
+   </g>
+   <g id="text_65">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="255.335403" y="277.581919" transform="rotate(-0 255.335403 277.581919)">7.9</text>
+   </g>
+   <g id="text_66">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="294.508705" transform="rotate(-0 110.45776 294.508705)">体育事业</text>
+   </g>
+   <g id="text_67">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="239.599813" y="294.37101" transform="rotate(-0 239.599813 294.37101)">7.0</text>
+   </g>
+   <g id="text_68">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="311.297796" transform="rotate(-0 110.45776 311.297796)">休闲业</text>
+   </g>
+   <g id="text_69">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="248.927404" y="311.160101" transform="rotate(-0 248.927404 311.160101)">7.5</text>
+   </g>
+   <g id="text_70">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="328.086887" transform="rotate(-0 110.45776 328.086887)">休闲业</text>
+   </g>
+   <g id="text_71">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="224.611304" y="327.949192" transform="rotate(-0 224.611304 327.949192)">6.2</text>
+   </g>
+   <g id="text_72">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="344.875978" transform="rotate(-0 110.45776 344.875978)">体育产业</text>
+   </g>
+   <g id="text_73">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="251.370156" y="344.738283" transform="rotate(-0 251.370156 344.738283)">7.7</text>
+   </g>
+   <g id="text_74">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="361.665069" transform="rotate(-0 110.45776 361.665069)">体育事业</text>
+   </g>
+   <g id="text_75">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="227.244566" y="361.527374" transform="rotate(-0 227.244566 361.527374)">6.4</text>
+   </g>
+   <g id="text_76">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="378.45416" transform="rotate(-0 110.45776 378.45416)">体育用品业</text>
+   </g>
+   <g id="text_77">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="256.071615" y="378.316465" transform="rotate(-0 256.071615 378.316465)">7.9</text>
+   </g>
+   <g id="text_78">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="407.331396" transform="rotate(-0 110.45776 407.331396)">娱乐场所</text>
+   </g>
+   <g id="text_79">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="261.985745" y="407.193701" transform="rotate(-0 261.985745 407.193701)">8.2</text>
+   </g>
+   <g id="text_80">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="424.120487" transform="rotate(-0 110.45776 424.120487)">娱乐场所</text>
+   </g>
+   <g id="text_81">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="254.829956" y="423.982792" transform="rotate(-0 254.829956 423.982792)">7.9</text>
+   </g>
+   <g id="text_82">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="440.909578" transform="rotate(-0 110.45776 440.909578)">娱乐场所</text>
+   </g>
+   <g id="text_83">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="270.399292" y="440.771883" transform="rotate(-0 270.399292 440.771883)">8.7</text>
+   </g>
+   <g id="text_84">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="469.786814" transform="rotate(-0 110.45776 469.786814)">餐饮业</text>
+   </g>
+   <g id="text_85">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="291.818575" y="469.649119" transform="rotate(-0 291.818575 469.649119)">9.8</text>
+   </g>
+   <g id="text_86">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="486.575905" transform="rotate(-0 110.45776 486.575905)">中餐馆</text>
+   </g>
+   <g id="text_87">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="265.090816" y="486.43821" transform="rotate(-0 265.090816 486.43821)">8.4</text>
+   </g>
+   <g id="text_88">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="515.453142" transform="rotate(-0 110.45776 515.453142)">文化宫</text>
+   </g>
+   <g id="text_89">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="266.725772" y="515.315446" transform="rotate(-0 266.725772 515.315446)">8.5</text>
+   </g>
+   <g id="text_90">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="544.330378" transform="rotate(-0 110.45776 544.330378)">乍浦镇</text>
+   </g>
+   <g id="text_91">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="273.258874" y="544.192683" transform="rotate(-0 273.258874 544.192683)">8.8</text>
+   </g>
+   <g id="text_92">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="573.207614" transform="rotate(-0 110.45776 573.207614)">服装鞋帽</text>
+   </g>
+   <g id="text_93">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="298.163357" y="573.069919" transform="rotate(-0 298.163357 573.069919)">10.2</text>
+   </g>
+   <g id="text_94">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="602.084851" transform="rotate(-0 110.45776 602.084851)">居屋</text>
+   </g>
+   <g id="text_95">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="243.899312" y="601.947156" transform="rotate(-0 243.899312 601.947156)">7.3</text>
+   </g>
+   <g id="text_96">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="618.873942" transform="rotate(-0 110.45776 618.873942)">名胜古迹</text>
+   </g>
+   <g id="text_97">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="241.07686" y="618.736246" transform="rotate(-0 241.07686 618.736246)">7.1</text>
+   </g>
+   <g id="text_98">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="635.663033" transform="rotate(-0 110.45776 635.663033)">金融服务</text>
+   </g>
+   <g id="text_99">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="261.598408" y="635.525337" transform="rotate(-0 261.598408 635.525337)">8.2</text>
+   </g>
+   <g id="text_100">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="652.452124" transform="rotate(-0 110.45776 652.452124)">旅游事业</text>
+   </g>
+   <g id="text_101">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="253.799171" y="652.314428" transform="rotate(-0 253.799171 652.314428)">7.8</text>
+   </g>
+   <g id="text_102">
+    <text style="fill: #ffffff; font: 6.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.45776" y="669.241214" transform="rotate(-0 110.45776 669.241214)">服务业</text>
+   </g>
+   <g id="text_103">
+    <text style="fill: #1a1a1a; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="254.82305" y="669.103519" transform="rotate(-0 254.82305 669.103519)">7.9</text>
+   </g>
+   <g id="text_104">
+    <text style="fill: #9aa0a6; font: 700 10px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="85.081306" y="29.940702" transform="rotate(-0 85.081306 29.940702)">A</text>
+   </g>
+   <g id="text_105">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="64.134839" transform="rotate(-0 110.159214 64.134839)">Sports / leisure (n=19)</text>
+   </g>
+   <g id="text_106">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="395.215712" transform="rotate(-0 110.159214 395.215712)">Entertainment (n=3)</text>
+   </g>
+   <g id="text_107">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="457.655388" transform="rotate(-0 110.159214 457.655388)">Food and beverage (n=2)</text>
+   </g>
+   <g id="text_108">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="503.337457" transform="rotate(-0 110.159214 503.337457)">Culture (n=1)</text>
+   </g>
+   <g id="text_109">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="532.214694" transform="rotate(-0 110.159214 532.214694)">Place name (n=1)</text>
+   </g>
+   <g id="text_110">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="561.076188" transform="rotate(-0 110.159214 561.076188)">Clothing (n=1)</text>
+   </g>
+   <g id="text_111">
+    <text style="fill: #5b6470; font: 700 6.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="110.159214" y="589.969166" transform="rotate(-0 110.159214 589.969166)">Other (n=5)</text>
+   </g>
+   <g id="text_112">
+    <text style="fill: #5b6470; font: 9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="105.979563" y="45.264" transform="rotate(-0 105.979563 45.264)">Amap classification anchor</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_37">
+    <path d="M 336.441905 679.176 
+L 485.455563 679.176 
+L 485.455563 51.264 
+L 336.441905 51.264 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="line2d_52">
+    <path d="M 420.680066 679.176 
+L 420.680066 51.264 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #5b6470; stroke-opacity: 0.75; stroke-width: 0.75; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_53">
+    <path d="M 336.441905 67.381527 
+L 485.455563 67.381527 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_54">
+    <path d="M 336.441905 398.4624 
+L 485.455563 398.4624 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_55">
+    <path d="M 336.441905 460.917818 
+L 485.455563 460.917818 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_56">
+    <path d="M 336.441905 506.584145 
+L 485.455563 506.584145 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_57">
+    <path d="M 336.441905 535.461382 
+L 485.455563 535.461382 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_58">
+    <path d="M 336.441905 564.338618 
+L 485.455563 564.338618 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_59">
+    <path d="M 336.441905 593.215855 
+L 485.455563 593.215855 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #c9ced3; stroke-width: 0.55; stroke-linecap: square"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_7">
+     <g id="line2d_60">
+      <path d="M 347.688219 679.176 
+L 347.688219 51.264 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_61">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="347.688219" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_113">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="347.688219" y="691.771625" transform="rotate(-0 347.688219 691.771625)">0.20</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_62">
+      <path d="M 375.804003 679.176 
+L 375.804003 51.264 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_63">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="375.804003" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_114">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.804003" y="691.771625" transform="rotate(-0 375.804003 691.771625)">0.25</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_64">
+      <path d="M 403.919788 679.176 
+L 403.919788 51.264 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_65">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="403.919788" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_115">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="403.919788" y="691.771625" transform="rotate(-0 403.919788 691.771625)">0.30</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_66">
+      <path d="M 432.035572 679.176 
+L 432.035572 51.264 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_67">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="432.035572" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_116">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="432.035572" y="691.771625" transform="rotate(-0 432.035572 691.771625)">0.35</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_68">
+      <path d="M 460.151356 679.176 
+L 460.151356 51.264 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #d9dee3; stroke-opacity: 0.8; stroke-width: 0.55; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_69">
+      <g>
+       <use xlink:href="#mc34a6c939e" x="460.151356" y="679.176" style="fill: #1a1a1a; stroke: #1a1a1a; stroke-width: 0.7"/>
+      </g>
+     </g>
+     <g id="text_117">
+      <text style="fill: #1a1a1a; font: 7px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="460.151356" y="691.771625" transform="rotate(-0 460.151356 691.771625)">0.40</text>
+     </g>
+    </g>
+    <g id="text_118">
+     <text style="fill: #25262b; font: 7.6px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="410.948734" y="703.587031" transform="rotate(-0 410.948734 703.587031)">Mean Amap–XHS cosine distance (1 − similarity)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_33"/>
+    <g id="ytick_34"/>
+    <g id="ytick_35"/>
+    <g id="ytick_36"/>
+    <g id="ytick_37"/>
+    <g id="ytick_38"/>
+    <g id="ytick_39"/>
+    <g id="ytick_40"/>
+    <g id="ytick_41"/>
+    <g id="ytick_42"/>
+    <g id="ytick_43"/>
+    <g id="ytick_44"/>
+    <g id="ytick_45"/>
+    <g id="ytick_46"/>
+    <g id="ytick_47"/>
+    <g id="ytick_48"/>
+    <g id="ytick_49"/>
+    <g id="ytick_50"/>
+    <g id="ytick_51"/>
+    <g id="ytick_52"/>
+    <g id="ytick_53"/>
+    <g id="ytick_54"/>
+    <g id="ytick_55"/>
+    <g id="ytick_56"/>
+    <g id="ytick_57"/>
+    <g id="ytick_58"/>
+    <g id="ytick_59"/>
+    <g id="ytick_60"/>
+    <g id="ytick_61"/>
+    <g id="ytick_62"/>
+    <g id="ytick_63"/>
+    <g id="ytick_64"/>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 336.441905 74.432945 
+L 463.020205 74.432945 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 91.222036 
+L 455.690673 91.222036 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 108.011127 
+L 448.288634 108.011127 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 124.800218 
+L 447.755046 124.800218 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 141.589309 
+L 446.08912 141.589309 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 158.3784 
+L 428.54882 158.3784 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 175.167491 
+L 423.400614 175.167491 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 191.956582 
+L 420.564565 191.956582 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 208.745673 
+L 419.190087 208.745673 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 225.534764 
+L 419.132227 225.534764 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 242.323855 
+L 419.093249 242.323855 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 259.112945 
+L 409.176611 259.112945 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 275.902036 
+L 407.937419 275.902036 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 292.691127 
+L 407.447794 292.691127 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 309.480218 
+L 386.667794 309.480218 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 326.269309 
+L 386.495396 326.269309 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 343.0584 
+L 378.439779 343.0584 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 359.847491 
+L 366.460103 359.847491 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 376.636582 
+L 346.468188 376.636582 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 405.513818 
+L 420.531555 405.513818 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 422.302909 
+L 404.63259 422.302909 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 439.092 
+L 403.043206 439.092 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 467.969236 
+L 470.938726 467.969236 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 484.758327 
+L 398.554076 484.758327 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 513.635564 
+L 449.85506 513.635564 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 542.5128 
+L 450.01216 542.5128 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 571.390036 
+L 436.718235 571.390036 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 600.267273 
+L 462.458022 600.267273 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 617.056364 
+L 450.207084 617.056364 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 633.845455 
+L 422.578942 633.845455 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 650.634545 
+L 409.951174 650.634545 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+    <path d="M 336.441905 667.423636 
+L 402.414949 667.423636 
+" clip-path="url(#pabc715b583)" style="fill: none; stroke: #6b6b83; stroke-opacity: 0.48; stroke-width: 1.4"/>
+   </g>
+   <g id="patch_38">
+    <path d="M 336.441905 679.176 
+L 336.441905 51.264 
+" style="fill: none; stroke: #c9ced3; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_39">
+    <path d="M 336.441905 679.176 
+L 485.455563 679.176 
+" style="fill: none; stroke: #c9ced3; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m654ab21da6" d="M 0 2.397916 
+C 0.635935 2.397916 1.245909 2.145256 1.695582 1.695582 
+C 2.145256 1.245909 2.397916 0.635935 2.397916 0 
+C 2.397916 -0.635935 2.145256 -1.245909 1.695582 -1.695582 
+C 1.245909 -2.145256 0.635935 -2.397916 0 -2.397916 
+C -0.635935 -2.397916 -1.245909 -2.145256 -1.695582 -1.695582 
+C -2.145256 -1.245909 -2.397916 -0.635935 -2.397916 0 
+C -2.397916 0.635935 -2.145256 1.245909 -1.695582 1.695582 
+C -1.245909 2.145256 -0.635935 2.397916 0 2.397916 
+z
+" style="stroke: #ffffff; stroke-width: 0.55"/>
+    </defs>
+    <g clip-path="url(#pabc715b583)">
+     <use xlink:href="#m654ab21da6" x="463.020205" y="74.432945" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="455.690673" y="91.222036" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="448.288634" y="108.011127" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="447.755046" y="124.800218" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="446.08912" y="141.589309" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="428.54882" y="158.3784" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="423.400614" y="175.167491" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="420.564565" y="191.956582" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="419.190087" y="208.745673" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="419.132227" y="225.534764" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="419.093249" y="242.323855" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="409.176611" y="259.112945" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="407.937419" y="275.902036" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="407.447794" y="292.691127" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="386.667794" y="309.480218" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="386.495396" y="326.269309" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="378.439779" y="343.0584" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="366.460103" y="359.847491" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="346.468188" y="376.636582" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="420.531555" y="405.513818" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="404.63259" y="422.302909" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="403.043206" y="439.092" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="470.938726" y="467.969236" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="398.554076" y="484.758327" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="449.85506" y="513.635564" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="450.01216" y="542.5128" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="436.718235" y="571.390036" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="462.458022" y="600.267273" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="450.207084" y="617.056364" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="422.578942" y="633.845455" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="409.951174" y="650.634545" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+     <use xlink:href="#m654ab21da6" x="402.414949" y="667.423636" style="fill: #6b6b83; stroke: #ffffff; stroke-width: 0.55"/>
+    </g>
+   </g>
+   <g id="text_119">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="466.394099" y="76.05775" transform="rotate(-0 466.394099 76.05775)">0.405</text>
+   </g>
+   <g id="text_120">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="459.064567" y="92.846841" transform="rotate(-0 459.064567 92.846841)">0.392</text>
+   </g>
+   <g id="text_121">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="451.662528" y="109.635932" transform="rotate(-0 451.662528 109.635932)">0.379</text>
+   </g>
+   <g id="text_122">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="451.128941" y="126.425023" transform="rotate(-0 451.128941 126.425023)">0.378</text>
+   </g>
+   <g id="text_123">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="449.463015" y="143.214114" transform="rotate(-0 449.463015 143.214114)">0.375</text>
+   </g>
+   <g id="text_124">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="431.922714" y="160.003205" transform="rotate(-0 431.922714 160.003205)">0.344</text>
+   </g>
+   <g id="text_125">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="426.774508" y="176.792296" transform="rotate(-0 426.774508 176.792296)">0.335</text>
+   </g>
+   <g id="text_126">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="423.938459" y="193.581387" transform="rotate(-0 423.938459 193.581387)">0.330</text>
+   </g>
+   <g id="text_127">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="422.563982" y="210.370477" transform="rotate(-0 422.563982 210.370477)">0.327</text>
+   </g>
+   <g id="text_128">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="422.506122" y="227.159568" transform="rotate(-0 422.506122 227.159568)">0.327</text>
+   </g>
+   <g id="text_129">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="422.467143" y="243.948659" transform="rotate(-0 422.467143 243.948659)">0.327</text>
+   </g>
+   <g id="text_130">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="412.550505" y="260.73775" transform="rotate(-0 412.550505 260.73775)">0.309</text>
+   </g>
+   <g id="text_131">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="411.311313" y="277.526841" transform="rotate(-0 411.311313 277.526841)">0.307</text>
+   </g>
+   <g id="text_132">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="410.821688" y="294.315932" transform="rotate(-0 410.821688 294.315932)">0.306</text>
+   </g>
+   <g id="text_133">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="390.041688" y="311.105023" transform="rotate(-0 390.041688 311.105023)">0.269</text>
+   </g>
+   <g id="text_134">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="389.86929" y="327.894114" transform="rotate(-0 389.86929 327.894114)">0.269</text>
+   </g>
+   <g id="text_135">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="381.813673" y="344.683205" transform="rotate(-0 381.813673 344.683205)">0.255</text>
+   </g>
+   <g id="text_136">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="369.833997" y="361.472296" transform="rotate(-0 369.833997 361.472296)">0.233</text>
+   </g>
+   <g id="text_137">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="349.842083" y="378.261387" transform="rotate(-0 349.842083 378.261387)">0.198</text>
+   </g>
+   <g id="text_138">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="423.905449" y="407.138623" transform="rotate(-0 423.905449 407.138623)">0.330</text>
+   </g>
+   <g id="text_139">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="408.006484" y="423.927714" transform="rotate(-0 408.006484 423.927714)">0.301</text>
+   </g>
+   <g id="text_140">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="406.4171" y="440.716805" transform="rotate(-0 406.4171 440.716805)">0.298</text>
+   </g>
+   <g id="text_141">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="474.31262" y="469.594041" transform="rotate(-0 474.31262 469.594041)">0.419</text>
+   </g>
+   <g id="text_142">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="401.92797" y="486.383132" transform="rotate(-0 401.92797 486.383132)">0.290</text>
+   </g>
+   <g id="text_143">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="453.228954" y="515.260368" transform="rotate(-0 453.228954 515.260368)">0.382</text>
+   </g>
+   <g id="text_144">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="453.386054" y="544.137605" transform="rotate(-0 453.386054 544.137605)">0.382</text>
+   </g>
+   <g id="text_145">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="440.09213" y="573.014841" transform="rotate(-0 440.09213 573.014841)">0.358</text>
+   </g>
+   <g id="text_146">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="465.831916" y="601.892077" transform="rotate(-0 465.831916 601.892077)">0.404</text>
+   </g>
+   <g id="text_147">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="453.580978" y="618.681168" transform="rotate(-0 453.580978 618.681168)">0.382</text>
+   </g>
+   <g id="text_148">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="425.952837" y="635.470259" transform="rotate(-0 425.952837 635.470259)">0.333</text>
+   </g>
+   <g id="text_149">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="413.325069" y="652.25935" transform="rotate(-0 413.325069 652.25935)">0.311</text>
+   </g>
+   <g id="text_150">
+    <text style="fill: #1a1a1a; font: 5.9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="405.788843" y="669.048441" transform="rotate(-0 405.788843 669.048441)">0.297</text>
+   </g>
+   <g id="text_151">
+    <text style="fill: #5b6470; font: 6.1px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: middle" x="420.680066" y="53.105396" transform="rotate(-0 420.680066 53.105396)">mean = 0.330</text>
+   </g>
+   <g id="text_152">
+    <text style="fill: #9aa0a6; font: 700 10px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="321.540539" y="29.940702" transform="rotate(-0 321.540539 29.940702)">B</text>
+   </g>
+   <g id="text_153">
+    <text style="fill: #5b6470; font: 9px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="336.441905" y="45.264" transform="rotate(-0 336.441905 45.264)">Cross-platform semantic distance</text>
+   </g>
+  </g>
+  <g id="text_154">
+   <text style="fill: #1a1a1a; font: 10.5px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="105.979563" y="15.716484" transform="rotate(-0 105.979563 15.716484)">Amap classification anchor vs cross-platform semantic distance (32 matched venues)</text>
+  </g>
+  <g id="text_155">
+   <text style="fill: #5b6470; font: 6.2px 'Noto Sans CJK SC', 'Microsoft YaHei', 'Arial', 'Aptos', 'DejaVu Sans', sans-serif; text-anchor: start" x="105.979563" y="715.787675" transform="rotate(-0 105.979563 715.787675)">Rank-1 probe word from venue-specific XHS−Amap difference vector · z-scores relative to full jieba probe distribution (n=153,290) · distance source: existing thesis venue-level Amap–XHS pairwise means</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p4b51ce5bb9">
+   <rect x="105.979563" y="51.264" width="208.982569" height="627.912"/>
+  </clipPath>
+  <clipPath id="pabc715b583">
+   <rect x="336.441905" y="51.264" width="149.013658" height="627.912"/>
+  </clipPath>
+ </defs>
+</svg>

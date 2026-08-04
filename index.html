@@ -8,8 +8,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: Arial, sans-serif; background: #f5f5f5; }
         #map { height: 100vh; width: 100%; }
+        .map-section-nav {
+            position: fixed;
+            left: 16px;
+            bottom: 16px;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 11px;
+            border: 1px solid rgba(37, 38, 43, 0.18);
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+            font-size: 11px;
+            transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+        }
+        .map-section-nav::before {
+            content: 'Explore below';
+            color: #666;
+            letter-spacing: 0.02em;
+        }
+        .map-section-nav a {
+            color: #2166AC;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .map-section-nav a:hover,
+        .map-section-nav a:focus-visible { text-decoration: underline; }
+        .map-section-nav a + a::before {
+            content: '|';
+            margin-right: 10px;
+            color: #aaa;
+            font-weight: 400;
+        }
+        .map-section-nav.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(8px);
+            visibility: hidden;
+        }
+        .analysis-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 3rem;
+            background: #f5f5f5;
+            color: #222;
+        }
+        .analysis-section h2 { margin: 0 0 0.75rem; font-size: 1.35rem; }
+        .analysis-section p { margin: 0 0 1.25rem; line-height: 1.6; }
+        .analysis-figure { display: block; width: 100%; height: auto; }
+        @media (max-width: 640px) {
+            .map-section-nav { left: 10px; bottom: 12px; max-width: calc(100vw - 20px); gap: 7px; padding: 6px 8px; font-size: 10px; }
+            .map-section-nav::before { content: 'More'; }
+            .map-section-nav a + a::before { margin-right: 7px; }
+        }
         .info-popup {
             background: white;
             padding: 12px;
@@ -44,6 +101,10 @@
 </head>
 <body>
     <div id="map"></div>
+    <nav class="map-section-nav" aria-label="Additional map analyses">
+        <a href="#figure-4-5">Figure 4.5</a>
+        <a href="#anchor-probing">Anchor Probing</a>
+    </nav>
     <script>
         // Initialize map centered on Shanghai
         const map = L.map('map').setView([31.23, 121.47], 11);
@@ -148,8 +209,26 @@
         };
         legend.addTo(map);
 
-        // Zoom controls already present by default; add fullscreen toggle
-        L.control.zoom({ position: 'topleft' }).addTo(map);
+    </script>
+    <section id="figure-4-5" class="analysis-section">
+        <h2>Figure 4.5 — Pairwise cosine similarity and projected semantic space</h2>
+        <img class="analysis-figure" src="assets/fig_4_5_pairwise_and_pca.png" alt="Figure 4.5: pairwise cosine similarity and paired Amap-Xiaohongshu positions in projected semantic space" />
+    </section>
+    <section id="anchor-probing" class="analysis-section">
+        <h2>Post-Submission: Anchor Probing (August 2026)</h2>
+        <p>Phase 3 anchor probing compares 32 venue-level difference vectors grouped into seven rank-1 Amap-anchor categories. Using jieba segmentation across n=153,290 tokens, the Amap end is relatively stable while the XHS caption end is more dispersed. The right panel shows the existing venue-level Amap–XHS cosine distance (1 − similarity) for the venues with a Phase 2 venue-specific probe vector. LISTEN is omitted because it has a thesis distance but no Phase 2 venue-specific probe vector. These results are lexical and platform-specific; multimodal evidence was not tested, so the figure does not attribute dispersion to images or video.</p>
+        <img class="analysis-figure" src="assets/portfolio_anchor_vs_distance.svg" alt="Anchor probing comparison of lexical difference vectors and Amap-XHS cosine distance" />
+    </section>
+    <script>
+        const mapSectionNav = document.querySelector('.map-section-nav');
+        const mapViewport = document.getElementById('map');
+        const updateMapSectionNav = () => {
+            const mapBottom = mapViewport.offsetTop + mapViewport.offsetHeight;
+            mapSectionNav.classList.toggle('is-hidden', window.scrollY > mapBottom - 24);
+        };
+        window.addEventListener('scroll', updateMapSectionNav, { passive: true });
+        window.addEventListener('resize', updateMapSectionNav);
+        updateMapSectionNav();
     </script>
 </body>
 </html>
