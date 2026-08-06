@@ -6,6 +6,7 @@
     <title>Shanghai Venues Interactive Map</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="./posthog-analytics.js" data-app-id="venue_map" data-app-version="2026-08"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -106,8 +107,32 @@
         <a href="#anchor-probing">Anchor Probing</a>
     </nav>
     <script>
+        const track = (eventName, properties = {}) => window.QingAnalytics?.capture(eventName, properties);
+        const mapLoadStartedAt = performance.now();
+        const discoveryState = {
+            mapLoaded: false,
+            mapExplored: false,
+            layersToggled: new Set(),
+            venuesOpened: new Set(),
+            analysesViewed: new Set()
+        };
+
+        const markDiscovery = () => {
+            const coreReached = discoveryState.mapLoaded && discoveryState.mapExplored && discoveryState.venuesOpened.size >= 1;
+            const fullReached = coreReached && discoveryState.layersToggled.size >= 2 && discoveryState.venuesOpened.size >= 2 && discoveryState.analysesViewed.size >= 1;
+            if (coreReached && !sessionStorage.getItem('venue_map_core_discovered')) {
+                sessionStorage.setItem('venue_map_core_discovered', '1');
+                track('feature_discovery_reached', { discovery_level: 'core' });
+            }
+            if (fullReached && !sessionStorage.getItem('venue_map_full_discovered')) {
+                sessionStorage.setItem('venue_map_full_discovered', '1');
+                track('feature_discovery_reached', { discovery_level: 'full' });
+            }
+        };
+
         // Initialize map centered on Shanghai
         const map = L.map('map').setView([31.23, 121.47], 11);
+        track('map_initialized', { initial_zoom: 11 });
 
         // Add CartoDB Positron basemap
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -183,18 +208,71 @@
                     const present = layer === 'bge' ? Boolean(b) : layer === 'amap' ? d.has_amap === '1' : layer === 'showstart' ? d.has_showstart === '1' : d.has_xhs === '1' || Boolean(x);
                     if (!present) return;
                     const marker = L.circleMarker([coords[1], coords[0]], stylesByLayer[layer]);
+                    marker.analyticsData = {
+                        venue_id: id,
+                        platform_layer: layer,
+                        card_type: 'venue_popup',
+                        engagement_unit: 'card'
+                    };
                     marker.bindTooltip(esc(p.display_name), { sticky: true });
                     marker.bindPopup(popup); group.addLayer(marker);
                 });
             });
+            discoveryState.mapLoaded = true;
+            track('map_data_loaded', {
+                venue_count: formal.length,
+                data_source_count: 7,
+                load_duration_ms: Math.round(performance.now() - mapLoadStartedAt)
+            });
+            markDiscovery();
             console.log(`Loaded formal inventory: ${formal.length} venues`);
-        }).catch(err => console.error('Could not load map data:', err));
+        }).catch(err => {
+            track('map_data_load_failed', {
+                error_type: err?.name || 'Error',
+                is_qa: false
+            });
+            console.error('Could not load map data:', err);
+        });
         L.control.layers(null, {
             'Amap': layerGroups.amap,
             'ShowStart': layerGroups.showstart,
             'XHS': layerGroups.xhs,
             'Cross-platform BGE': layerGroups.bge
         }, { collapsed: false, position: 'topright' }).addTo(map);
+
+        const layerNameByGroup = new Map(Object.entries(layerGroups).map(([name, group]) => [group, name]));
+        map.on('overlayadd overlayremove', event => {
+            const platformLayer = layerNameByGroup.get(event.layer) || 'unknown';
+            discoveryState.layersToggled.add(platformLayer);
+            track('map_layer_toggled', {
+                platform_layer: platformLayer,
+                enabled: event.type === 'overlayadd'
+            });
+            markDiscovery();
+        });
+
+        map.on('popupopen', event => {
+            const markerData = event.popup?._source?.analyticsData;
+            if (!markerData) return;
+            discoveryState.venuesOpened.add(markerData.venue_id);
+            track('venue_popup_opened', markerData);
+            markDiscovery();
+        });
+
+        let mapInteractionPending = false;
+        const mapContainer = map.getContainer();
+        ['pointerdown', 'wheel', 'keydown'].forEach(eventName => {
+            mapContainer.addEventListener(eventName, () => { mapInteractionPending = true; }, { passive: eventName !== 'keydown' });
+        });
+        map.on('moveend zoomend', () => {
+            if (!mapInteractionPending) return;
+            mapInteractionPending = false;
+            if (!discoveryState.mapExplored) {
+                discoveryState.mapExplored = true;
+                track('map_explored', { zoom_level: map.getZoom() });
+                markDiscovery();
+            }
+        });
 
         const legend = L.control({ position: 'bottomright' });
         legend.onAdd = () => {
@@ -212,16 +290,69 @@
     </script>
     <section id="figure-4-5" class="analysis-section">
         <h2>Figure 4.5 — Pairwise cosine similarity and projected semantic space</h2>
-        <img class="analysis-figure" src="assets/fig_4_5_pairwise_and_pca.png" alt="Figure 4.5: pairwise cosine similarity and paired Amap-Xiaohongshu positions in projected semantic space" />
+        <img class="analysis-figure" data-figure-id="figure-4-5" src="assets/fig_4_5_pairwise_and_pca.png" alt="Figure 4.5: pairwise cosine similarity and paired Amap-Xiaohongshu positions in projected semantic space" />
     </section>
     <section id="anchor-probing" class="analysis-section">
         <h2>Post-Submission: Anchor Probing (August 2026)</h2>
         <p>Phase 3 anchor probing compares 32 venue-level difference vectors grouped into seven rank-1 Amap-anchor categories. Using jieba segmentation across n=153,290 tokens, the Amap end is relatively stable while the XHS caption end is more dispersed. The right panel shows the existing venue-level Amap–XHS cosine distance (1 − similarity) for the venues with a Phase 2 venue-specific probe vector. LISTEN is omitted because it has a thesis distance but no Phase 2 venue-specific probe vector. These results are lexical and platform-specific; multimodal evidence was not tested, so the figure does not attribute dispersion to images or video.</p>
-        <img class="analysis-figure" src="assets/portfolio_anchor_vs_distance.svg" alt="Anchor probing comparison of lexical difference vectors and Amap-XHS cosine distance" />
+        <img class="analysis-figure" data-figure-id="anchor-probing-figure" src="assets/portfolio_anchor_vs_distance.svg" alt="Anchor probing comparison of lexical difference vectors and Amap-XHS cosine distance" />
     </section>
     <script>
         const mapSectionNav = document.querySelector('.map-section-nav');
         const mapViewport = document.getElementById('map');
+        mapSectionNav.addEventListener('click', event => {
+            const link = event.target.closest('a[href^="#"]');
+            if (!link) return;
+            track('analysis_nav_clicked', { analysis_id: link.getAttribute('href').slice(1) });
+        });
+
+        const analysisTimers = new Map();
+        const analysisObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const analysisId = entry.target.closest('.analysis-section')?.id;
+                if (!analysisId) return;
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    if (analysisTimers.has(analysisId) || discoveryState.analysesViewed.has(analysisId)) return;
+                    analysisTimers.set(analysisId, window.setTimeout(() => {
+                        analysisTimers.delete(analysisId);
+                        discoveryState.analysesViewed.add(analysisId);
+                        track('analysis_section_viewed', { analysis_id: analysisId });
+                        markDiscovery();
+                    }, 2000));
+                } else if (analysisTimers.has(analysisId)) {
+                    window.clearTimeout(analysisTimers.get(analysisId));
+                    analysisTimers.delete(analysisId);
+                }
+            });
+        }, { threshold: [0.5] });
+        document.querySelectorAll('.analysis-section h2').forEach(heading => analysisObserver.observe(heading));
+
+        const figureTimers = new Map();
+        const figureObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const figureId = entry.target.dataset.figureId;
+                const analysisId = entry.target.closest('.analysis-section')?.id;
+                const sessionKey = `venue_map_figure_viewed:${figureId}`;
+                if (!figureId || !analysisId || sessionStorage.getItem(sessionKey)) return;
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+                    if (figureTimers.has(figureId)) return;
+                    figureTimers.set(figureId, window.setTimeout(() => {
+                        figureTimers.delete(figureId);
+                        sessionStorage.setItem(sessionKey, '1');
+                        track('analysis_figure_viewed', {
+                            figure_id: figureId,
+                            analysis_id: analysisId,
+                            engagement_unit: 'page'
+                        });
+                    }, 1200));
+                } else if (figureTimers.has(figureId)) {
+                    window.clearTimeout(figureTimers.get(figureId));
+                    figureTimers.delete(figureId);
+                }
+            });
+        }, { threshold: [0.35] });
+        document.querySelectorAll('.analysis-figure[data-figure-id]').forEach(figure => figureObserver.observe(figure));
+
         const updateMapSectionNav = () => {
             const mapBottom = mapViewport.offsetTop + mapViewport.offsetHeight;
             mapSectionNav.classList.toggle('is-hidden', window.scrollY > mapBottom - 24);
