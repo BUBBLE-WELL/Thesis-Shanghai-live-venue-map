@@ -1,0 +1,13 @@
+# Public runtime files for the China mirror.
+index.html
+interactive_venue_map.html
+posthog-analytics.js
+assets/fig_4_5_pairwise_and_pca.png
+assets/portfolio_anchor_vs_distance.svg
+data/bge_d0_amap_text_entries.csv
+data/bge_d1_batch2_venue_summary.csv
+data/canonical_name_en_DRAFT.csv
+data/showstart_venue_layers.csv
+data/venue_master_for_map.geojson
+data/venue_master_for_map_amap_showstart.csv
+data/xhs_heat_venue_normalized_metrics_v1.csv

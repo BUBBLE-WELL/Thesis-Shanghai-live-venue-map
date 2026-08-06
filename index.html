@@ -98,6 +98,7 @@
         .legend-item { margin: 6px 0; display: flex; align-items: center; gap: 8px; }
         .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
         .layer-note { color: #666; font-size: 11px; margin-top: 8px; line-height: 1.35; }
+        .layer-note span { display: block; }
     </style>
 </head>
 <body>
@@ -282,7 +283,7 @@
                 <div class="legend-item"><div class="legend-dot" style="background:#D6604D"></div><span>ShowStart</span></div>
                 <div class="legend-item"><div class="legend-dot" style="background:#1B9E77"></div><span>XHS</span></div>
                 <div class="legend-item"><div class="legend-dot" style="border:3px solid #25262B;background:white"></div><span>Cross-platform BGE</span></div>
-                <div class="layer-note">Hover for venue-level fields; click a marker for a persistent popup.</div>`;
+                <div class="layer-note"><span>Hover for venue-level fields.</span><span>Click a marker for a persistent popup.</span></div>`;
             return div;
         };
         legend.addTo(map);
