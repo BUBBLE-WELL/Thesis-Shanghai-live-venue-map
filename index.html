@@ -3,71 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanghai Venues Interactive Map</title>
+    <title>Shanghai Venues — Thesis Research</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="./posthog-analytics.js" data-app-id="venue_map" data-app-version="2026-08"></script>
     <style>
+        /* ── Global reset ── */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        #map { height: 100vh; width: 100%; }
-        .map-section-nav {
+        #interactive-map, #figure-4-5, #anchor-probing { scroll-margin-top: 92px; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #f7f7f8;
+            color: #1a1a2e;
+        }
+        .page-content {
+            margin-left: 340px;
+            padding: 20px 24px 48px 0;
+            transition: margin-left 0.22s ease;
+        }
+
+        /* ─────────────────────────────────────────────
+           CARD NAV
+        ───────────────────────────────────────────── */
+        .card-nav {
+            background: #ffffff;
+            border: 1px solid #dfe3e8;
+            border-radius: 14px;
+            padding: 20px 16px;
+            box-shadow: 0 8px 28px rgba(24, 39, 58, 0.10);
             position: fixed;
-            left: 16px;
-            bottom: 16px;
-            z-index: 1100;
+            z-index: 1200;
+            inset: 20px auto 20px 20px;
+            width: 296px;
+            overflow-y: auto;
+            transition: width 0.22s ease, padding 0.22s ease;
+        }
+        .card-nav-header {
+            margin: 0 38px 16px 2px;
+        }
+        .card-nav-header h1 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #374151;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+        }
+        .card-nav-header p {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 3px;
+        }
+        .card-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .nav-toggle {
+            position: absolute;
+            top: 14px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border: 1px solid #d7dde5;
+            border-radius: 8px;
+            background: #f7f9fb;
+            color: #26364a;
+            font: 700 1.2rem/1 sans-serif;
+            cursor: pointer;
+            transition: background 0.16s ease, color 0.16s ease;
+        }
+        .nav-toggle:hover { background: #e9f0f7; color: #0f4c81; }
+        .nav-toggle:focus-visible { outline: 3px solid rgba(33, 102, 172, 0.3); outline-offset: 2px; }
+        body.nav-collapsed .card-nav {
+            width: 58px;
+            padding: 58px 12px 12px;
+            overflow: hidden;
+        }
+        body.nav-collapsed .card-nav-header,
+        body.nav-collapsed .card-row { display: none; }
+        body.nav-collapsed .nav-toggle { right: 12px; }
+        body.nav-collapsed .page-content { margin-left: 102px; }
+
+        /* individual nav card */
+        .nav-card {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+            transition: box-shadow 0.18s ease, transform 0.18s ease;
+            cursor: pointer;
+        }
+        .nav-card:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        .nav-card.is-active {
+            border-color: #2166AC;
+            background: #edf5fc;
+            box-shadow: 0 0 0 2px #2166AC;
+            transform: none;
+        }
+        .nav-card.is-active .nav-card-title { color: #15558e; }
+
+        /* thumbnail */
+        .nav-card-thumb {
+            width: 82px;
+            min-height: 88px;
+            overflow: hidden;
+            background: #f0f4f8;
+            flex-shrink: 0;
+        }
+        .nav-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.22s ease;
+        }
+        .nav-card:hover .nav-card-thumb img {
+            transform: scale(1.04);
+        }
+
+        /* map placeholder thumb */
+        .thumb-map {
+            background: linear-gradient(140deg, #dce8f5 0%, #b8d3eb 45%, #a3c4e0 100%);
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 7px 11px;
-            border: 1px solid rgba(37, 38, 43, 0.18);
-            border-radius: 3px;
-            background: rgba(255, 255, 255, 0.88);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
-            font-size: 11px;
-            transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
         }
-        .map-section-nav::before {
-            content: 'Explore below';
-            color: #666;
-            letter-spacing: 0.02em;
+        .thumb-map-dots {
+            display: flex;
+            gap: 6px;
+            opacity: 0.7;
         }
-        .map-section-nav a {
-            color: #2166AC;
-            font-weight: 700;
-            text-decoration: none;
+        .thumb-map-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+        }
+        .dot-blue  { background: #2166AC; }
+        .dot-red   { background: #D6604D; }
+        .dot-green { background: #1B9E77; }
+        .thumb-map-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #4b6a8a;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* card body */
+        .nav-card-body {
+            padding: 10px 11px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .nav-card-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 5px;
+            line-height: 1.35;
+        }
+        .nav-card-desc {
+            font-size: 0.72rem;
+            color: #6b7280;
+            line-height: 1.55;
+            margin-bottom: 10px;
+            flex: 1;
+        }
+
+        /* pill tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
             white-space: nowrap;
         }
-        .map-section-nav a:hover,
-        .map-section-nav a:focus-visible { text-decoration: underline; }
-        .map-section-nav a + a::before {
-            content: '|';
-            margin-right: 10px;
-            color: #aaa;
-            font-weight: 400;
+        .tag-blue   { background: #dbeafe; color: #1d4ed8; }
+        .tag-green  { background: #d1fae5; color: #065f46; }
+        .tag-purple { background: #ede9fe; color: #5b21b6; }
+        .tag-gray   { background: #f3f4f6; color: #374151; }
+        .tag-orange { background: #ffedd5; color: #9a3412; }
+        .tag-teal   { background: #ccfbf1; color: #0f766e; }
+
+        /* ─────────────────────────────────────────────
+           MAP SECTION
+        ───────────────────────────────────────────── */
+        #interactive-map {
+            height: 80vh;
+            min-height: 520px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #d8dee6;
+            border-radius: 14px;
+            background: #e9eef3;
+            box-shadow: 0 6px 24px rgba(24, 39, 58, 0.08);
         }
-        .map-section-nav.is-hidden {
-            opacity: 0;
+        #map {
+            height: 100%;
+            width: 100%;
+            container-type: inline-size;
+        }
+        .map-loading {
+            position: absolute;
+            z-index: 700;
+            inset: 0;
+            display: grid;
+            place-items: center;
             pointer-events: none;
-            transform: translateY(8px);
+            background: rgba(247, 249, 252, 0.58);
+            color: #334155;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        .map-loading span {
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 6px 20px rgba(24, 39, 58, 0.16);
+        }
+        .map-loading.is-hidden {
+            opacity: 0;
             visibility: hidden;
         }
-        .analysis-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2.5rem 1.25rem 3rem;
-            background: #f5f5f5;
-            color: #222;
-        }
-        .analysis-section h2 { margin: 0 0 0.75rem; font-size: 1.35rem; }
-        .analysis-section p { margin: 0 0 1.25rem; line-height: 1.6; }
-        .analysis-figure { display: block; width: 100%; height: auto; }
-        @media (max-width: 640px) {
-            .map-section-nav { left: 10px; bottom: 12px; max-width: calc(100vw - 20px); gap: 7px; padding: 6px 8px; font-size: 10px; }
-            .map-section-nav::before { content: 'More'; }
-            .map-section-nav a + a::before { margin-right: 7px; }
-        }
+
+        /* Leaflet popup / legend / controls (preserved from original) */
         .info-popup {
             background: white;
             padding: 12px;
@@ -77,7 +260,7 @@
             font-size: 13px;
         }
         .info-popup h4 { margin-bottom: 6px; color: #1a1a1a; }
-        .info-popup p { margin: 4px 0; color: #555; line-height: 1.4; }
+        .info-popup p  { margin: 4px 0; color: #555; line-height: 1.4; }
         .class-badge {
             display: inline-block;
             padding: 2px 6px;
@@ -87,25 +270,284 @@
             margin-top: 4px;
         }
         .canonical { background: #2166AC; color: white; }
-        .ss_only { background: #6B6B83; color: white; }
+        .ss_only   { background: #6B6B83; color: white; }
         .legend {
-            background: white;
+            background: rgba(255, 255, 255, 0.97);
             padding: 12px;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(24, 39, 58, 0.16);
             font-size: 12px;
+            width: min(300px, calc(100vw - 48px));
+            max-width: 100%;
+            white-space: normal;
         }
-        .legend-item { margin: 6px 0; display: flex; align-items: center; gap: 8px; }
-        .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
-        .layer-note { color: #666; font-size: 11px; margin-top: 8px; line-height: 1.35; }
+        .legend-item { margin: 6px 0; display: flex; align-items: center; gap: 8px; min-width: 0; }
+        .legend-item span { min-width: 0; overflow-wrap: anywhere; }
+        .legend-dot  { width: 14px; height: 14px; border-radius: 50%; }
+        .bge-marker {
+            filter: drop-shadow(0 0 2px rgba(96, 165, 250, 0.95)) drop-shadow(0 0 5px rgba(219, 234, 254, 0.9));
+        }
+        .legend-section + .legend-section { margin-top: 12px; padding-top: 10px; border-top: 1px solid #e5e7eb; }
+        .legend-title { font-weight: 700; margin-bottom: 7px; }
+        .legend-empty { color: #7a8088; font-style: italic; }
+        .legend-caption { color: #343a43; line-height: 1.4; overflow-wrap: anywhere; }
+        .legend-ramp {
+            width: 54px;
+            height: 9px;
+            border-radius: 99px;
+            background: linear-gradient(90deg, hsl(220, 85%, 42%), hsl(118, 85%, 51%), hsl(15, 85%, 60%));
+            border: 1px solid rgba(37, 38, 43, 0.18);
+            flex-shrink: 0;
+        }
+        .layer-note  { color: #666; font-size: 11px; margin-top: 8px; line-height: 1.35; overflow-wrap: anywhere; }
+        .leaflet-top.leaflet-left {
+            display: flex;
+            align-items: flex-start;
+        }
+        .leaflet-top.leaflet-left .leaflet-control {
+            float: none;
+            clear: none;
+        }
+        .leaflet-control-layers,
+        .leaflet-bar {
+            border: 0 !important;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(24, 39, 58, 0.16) !important;
+            overflow: hidden;
+        }
+        .leaflet-control-layers {
+            background: rgba(255, 255, 255, 0.97);
+        }
+        .leaflet-bar a,
+        .leaflet-bar a:hover {
+            border: 0 !important;
+        }
+        .discovery-control {
+            background: rgba(255, 255, 255, 0.97);
+            padding: 10px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(24, 39, 58, 0.16);
+            font-size: 12px;
+            width: min(480px, max(190px, calc(100vw - 500px)));
+            min-width: 190px;
+        }
+        .discovery-control label  { display: block; font-weight: bold; margin-bottom: 4px; }
+        .discovery-control select {
+            width: 100%;
+            margin-bottom: 7px;
+            padding: 5px 7px;
+            border: 0;
+            border-radius: 6px;
+            background: #f1f4f7;
+            color: #1f2937;
+        }
+        .discovery-control select:focus-visible {
+            outline: 3px solid rgba(33, 102, 172, 0.28);
+            outline-offset: 2px;
+        }
+        @container (max-width: 540px) {
+            .leaflet-top.leaflet-left { flex-direction: column; }
+            .discovery-control {
+                width: calc(100cqw - 20px);
+                min-width: 0;
+            }
+        }
+
+        /* ─────────────────────────────────────────────
+           ANALYSIS SECTIONS
+        ───────────────────────────────────────────── */
+        .section-divider {
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .analysis-section {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 52px 32px 60px;
+        }
+        .analysis-section h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+            line-height: 1.4;
+        }
+        .analysis-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.09);
+            margin-bottom: 20px;
+            display: block;
+        }
+        .analysis-section.image-only {
+            max-width: none;
+            display: flex;
+            justify-content: center;
+        }
+        .analysis-section.image-only img {
+            width: min(100%, 880px);
+            margin: 0 auto;
+        }
+        .analysis-section p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            line-height: 1.75;
+        }
+
+        /* anchor offset for fixed-height nav */
+        :target { scroll-margin-top: 0; }
+
+        /* ─────────────────────────────────────────────
+           RESPONSIVE
+        ───────────────────────────────────────────── */
+        @media (max-width: 640px) {
+            .card-nav {
+                inset: 12px auto 12px 12px;
+                width: min(296px, calc(100vw - 24px));
+            }
+            .page-content { margin-left: 0; padding: 84px 12px 32px; }
+            body:not(.nav-collapsed) .page-content { opacity: 0.55; }
+            body.nav-collapsed .card-nav { width: 58px; }
+            body.nav-collapsed .page-content { margin-left: 0; }
+            #interactive-map { height: 80vh; min-height: 480px; }
+            .analysis-section { padding: 36px 16px 44px; }
+            .legend { width: min(236px, calc(100vw - 40px)); }
+            .legend-item.discovery-scale { align-items: flex-start; flex-direction: column; gap: 5px; }
+            .legend-caption strong { display: block; }
+            .discovery-control {
+                width: calc(100vw - 150px);
+                min-width: 0;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .card-nav, .page-content, .nav-card, .nav-card-thumb img { transition: none; }
+        }
     </style>
 </head>
 <body>
-    <div id="map"></div>
-    <nav class="map-section-nav" aria-label="Additional map analyses">
-        <a href="#figure-4-5">Figure 4.5</a>
-        <a href="#anchor-probing">Anchor Probing</a>
+
+    <!-- ══════════════════════════════════════════════
+         CARD NAV
+    ══════════════════════════════════════════════ -->
+    <nav class="card-nav" aria-label="Page sections">
+        <button class="nav-toggle" type="button" aria-expanded="true" aria-controls="page-section-links" aria-label="Collapse section navigation">‹</button>
+        <div class="card-nav-header">
+            <h1>Shanghai Venues · Thesis Research</h1>
+        </div>
+        <div class="card-row" id="page-section-links">
+
+            <!-- Card 1: Interactive Map -->
+            <a href="#interactive-map" class="nav-card" data-analysis-id="interactive-map">
+                <div class="nav-card-thumb thumb-map">
+                    <div class="thumb-map-dots">
+                        <div class="thumb-map-dot dot-blue"></div>
+                        <div class="thumb-map-dot dot-red"></div>
+                        <div class="thumb-map-dot dot-green"></div>
+                    </div>
+                    <span class="thumb-map-label">POI Map</span>
+                </div>
+                <div class="nav-card-body">
+                    <div class="nav-card-title">Interactive Venue Map</div>
+                    <div class="tags">
+                        <span class="tag tag-blue">UGC</span>
+                        <span class="tag tag-purple">BGE-M3</span>
+                        <span class="tag tag-teal">multi-source data</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2: Figure 4.5 -->
+            <a href="#figure-4-5" class="nav-card" data-analysis-id="figure-4-5">
+                <div class="nav-card-thumb">
+                    <img
+                        src="assets/fig_4_5_pairwise_and_pca.png"
+                        alt="Figure 4.5: pairwise cosine similarity heatmap and PCA projection"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="nav-card-body">
+                    <div class="nav-card-title">Figure 4.5 — Pairwise Cosine Similarity</div>
+                    <div class="nav-card-desc">Cross-platform semantic similarity matrix with Amap–XHS pairs projected into 2D semantic space via PCA.</div>
+                    <div class="tags">
+                        <span class="tag tag-purple">BGE-M3</span>
+                        <span class="tag tag-teal">cosine similarity</span>
+                        <span class="tag tag-blue">PCA</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3: Anchor Probing -->
+            <a href="#anchor-probing" class="nav-card" data-analysis-id="anchor-probing">
+                <div class="nav-card-thumb">
+                    <img
+                        src="assets/portfolio_anchor_vs_distance.svg"
+                        alt="Anchor probing: difference vectors vs Amap–XHS cosine distance"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="nav-card-body">
+                    <div class="nav-card-title">Anchor Probing (August 2026)</div>
+                    <div class="nav-card-desc">32 venue-level difference vectors across 7 Amap-anchor categories, with Amap–XHS cosine distance for Phase 2 venues.</div>
+                    <div class="tags">
+                        <span class="tag tag-gray">jieba</span>
+                        <span class="tag tag-purple">BGE-M3</span>
+                        <span class="tag tag-teal">anchor probing</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
     </nav>
+
+    <main class="page-content">
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 1: INTERACTIVE MAP
+    ══════════════════════════════════════════════ -->
+    <section id="interactive-map">
+        <div id="map"></div>
+        <div id="map-loading" class="map-loading" role="status"><span>Loading map data…</span></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 2: FIGURE 4.5
+    ═══════════════════════════════════════════…20 tokens truncated…section" id="figure-4-5">
+            <h2>Figure 4.5 — Pairwise cosine similarity and projected semantic space</h2>
+            <img
+                id="figure-4-5-image"
+                class="analysis-figure"
+                data-figure-id="figure-4-5"
+                src="assets/fig_4_5_pairwise_and_pca.png"
+                alt="Figure 4.5: pairwise cosine similarity and paired Amap-Xiaohongshu positions in projected semantic space"
+            >
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 3: ANCHOR PROBING
+    ══════════════════════════════════════════════ -->
+    <div id="anchor-probing" class="section-divider" style="border-top: 1px solid #e5e7eb; background: #fafafa;">
+        <div class="analysis-section image-only">
+            <img
+                id="anchor-probing-figure"
+                class="analysis-figure"
+                data-figure-id="anchor-probing-figure"
+                src="assets/portfolio_anchor_vs_distance.svg"
+                alt="Anchor probing comparison of lexical difference vectors and Amap-XHS cosine distance"
+            >
+        </div>
+    </div>
+    </main>
+
+    <!-- ══════════════════════════════════════════════
+         MAP SCRIPT (preserved from index.html)
+    ══════════════════════════════════════════════ -->
     <script>
         const track = (eventName, properties = {}) => window.QingAnalytics?.capture(eventName, properties);
         const mapLoadStartedAt = performance.now();
@@ -142,18 +584,45 @@
 
         // Marker styles
         const stylesByLayer = {
-            amap: { color: '#2166AC', fillColor: '#2166AC', fillOpacity: 0.82, radius: 6 },
+            amap:      { color: '#2166AC', fillColor: '#2166AC', fillOpacity: 0.82, radius: 6 },
             showstart: { color: '#D6604D', fillColor: '#D6604D', fillOpacity: 0.82, radius: 6 },
-            xhs: { color: '#1B9E77', fillColor: '#1B9E77', fillOpacity: 0.82, radius: 6 },
-            bge: { color: '#25262B', fillColor: 'white', fillOpacity: 0.05, weight: 3, radius: 9 }
+            xhs:       { color: '#1B9E77', fillColor: '#1B9E77', fillOpacity: 0.82, radius: 6 },
+            bge:       { color: '#60A5FA', fillColor: '#EFF6FF', fillOpacity: 0.72, weight: 1.25, radius: 8, className: 'bge-marker' }
         };
 
         const layerGroups = {
-            amap: L.layerGroup().addTo(map),
+            amap:      L.layerGroup().addTo(map),
             showstart: L.layerGroup().addTo(map),
-            xhs: L.layerGroup().addTo(map),
-            bge: L.layerGroup().addTo(map)
+            xhs:       L.layerGroup().addTo(map),
+            bge:       L.layerGroup().addTo(map)
         };
+        const discoveryLayer   = L.layerGroup().addTo(map);
+        const discoveryMarkers = [];
+        let discoveryRecords   = [];
+        let discoveryMode      = 'cross_bge';
+        let discoveryKeyword   = '';
+        let legendContainer    = null;
+        let refreshDiscoveryControls = () => {};
+        const mapLoading = document.getElementById('map-loading');
+        const setMapLoading = (message = '') => {
+            mapLoading.classList.toggle('is-hidden', !message);
+            if (message) mapLoading.querySelector('span').textContent = message;
+        };
+
+        const discoveryLabels = {
+            showstart_genre:  'ShowStart genre',
+            showstart_events: 'ShowStart event count',
+            amap_similarity:  'Amap category–keytag BGE',
+            xhs_likes:        'XHS mean likes',
+            xhs_saves:        'XHS mean saves',
+            cross_bge:        'Cross-platform BGE'
+        };
+        const platformLegendItems = [
+            { label: 'Amap', group: layerGroups.amap, dot: 'background:#2166AC' },
+            { label: 'ShowStart', group: layerGroups.showstart, dot: 'background:#D6604D' },
+            { label: 'XHS', group: layerGroups.xhs, dot: 'background:#1B9E77' },
+            { label: '3-platform BGE–available venues', group: layerGroups.bge, dot: 'border:1.25px solid #60A5FA;background:#EFF6FF;box-shadow:0 0 3px #60A5FA,0 0 6px rgba(219,234,254,.9)' }
+        ];
 
         function parseCsv(text) {
             const rows = []; let row = []; let cell = ''; let quoted = false;
@@ -172,9 +641,75 @@
             return rows.map(values => Object.fromEntries(headers.map((h, i) => [h, values[i] || ''])));
         }
 
-        const csv = url => fetch(url).then(r => { if (!r.ok) throw new Error(`${url}: ${r.status}`); return r.text(); }).then(parseCsv);
-        const num = value => value === '' || value == null ? '—' : Number(value).toLocaleString(undefined, { maximumFractionDigits: 2 });
-        const val = value => value === '' || value == null ? '—' : value;
+        const csv    = url => fetch(url).then(r => { if (!r.ok) throw new Error(`${url}: ${r.status}`); return r.text(); }).then(parseCsv);
+        const num    = value => value === '' || value == null ? '—' : Number(value).toLocaleString(undefined, { maximumFractionDigits: 2 });
+        const val    = value => value === '' || value == null ? '—' : value;
+        const numeric = value => value === '' || value == null || Number.isNaN(Number(value)) ? null : Number(value);
+        const escapeLegendText = value => String(value ?? '').replace(/[&<>"']/g, character => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[character]));
+        const isSimilarityMode = () => discoveryMode === 'amap_similarity' || discoveryMode === 'cross_bge';
+        const heatColor = (t) => isSimilarityMode()
+            ? `hsl(${Math.round(8 + 112 * t)}, 78%, ${Math.round(52 - 10 * t)}%)`
+            : `hsl(${Math.round(220 - 205 * t)}, 85%, ${Math.round(42 + 18 * t)}%)`;
+
+        const discoveryScore = record => {
+            if (discoveryMode === 'showstart_genre')  return record.genres.includes(discoveryKeyword) ? numeric(record.eventCount) || 1 : null;
+            if (discoveryMode === 'showstart_events') return numeric(record.eventCount);
+            if (discoveryMode === 'amap_similarity')  return numeric(record.amapCosine);
+            if (discoveryMode === 'xhs_likes')        return numeric(record.likes);
+            if (discoveryMode === 'xhs_saves')        return numeric(record.saves);
+            if (discoveryMode === 'cross_bge')        return numeric(record.crossCosine);
+            return null;
+        };
+
+        function renderDiscovery() {
+            discoveryLayer.clearLayers();
+            discoveryMarkers.length = 0;
+            const scored  = discoveryRecords.map(record => ({ record, score: discoveryScore(record) })).filter(x => x.score !== null);
+            const values  = scored.map(x => x.score), min = Math.min(...values), max = Math.max(...values);
+            scored.forEach(({ record, score }) => {
+                const t = max === min ? 1 : (score - min) / (max - min);
+                const marker = L.circleMarker([record.lat, record.lng], { color: heatColor(t), fillColor: heatColor(t), fillOpacity: 0.85, weight: 1, radius: 5 + 7 * t });
+                marker.analyticsData = {
+                    venue_id: record.id,
+                    platform_layer: 'discovery',
+                    card_type: 'venue_popup',
+                    engagement_unit: 'card'
+                };
+                marker.bindTooltip(`${record.name}: ${score.toFixed(2)}`, { sticky: true });
+                marker.bindPopup(record.popup);
+                discoveryLayer.addLayer(marker); discoveryMarkers.push(marker);
+            });
+        }
+
+        function updateLegend() {
+            if (!legendContainer) return;
+            const visibleLayers = platformLegendItems
+                .filter(item => map.hasLayer(item.group))
+                .map(item => `<div class="legend-item"><div class="legend-dot" style="${item.dot}"></div><span>${item.label}</span></div>`)
+                .join('');
+            const genreSuffix = discoveryMode === 'showstart_genre' && discoveryKeyword
+                ? `: ${escapeLegendText(discoveryKeyword)}`
+                : '';
+            const rampBackground = isSimilarityMode()
+                ? 'linear-gradient(90deg, hsl(8, 78%, 52%), hsl(64, 78%, 47%), hsl(120, 78%, 42%))'
+                : 'linear-gradient(90deg, hsl(220, 85%, 42%), hsl(118, 85%, 51%), hsl(15, 85%, 60%))';
+            const rampLabel = isSimilarityMode() ? 'Lower similarity → higher similarity' : 'Lower → higher';
+            const discoveryLegend = map.hasLayer(discoveryLayer) ? `
+                <div class="legend-section">
+                    <div class="legend-title">Discovery overlay</div>
+                    <div class="legend-item discovery-scale"><div class="legend-ramp" style="background:${rampBackground}"></div><span>${rampLabel}</span></div>
+                    <div class="legend-caption"><strong>Showing:</strong> ${discoveryLabels[discoveryMode]}${genreSuffix}</div>
+                </div>` : '';
+            legendContainer.innerHTML = `
+                <div class="legend-section">
+                    <div class="legend-title">Visible platform layers</div>
+                    ${visibleLayers || '<div class="legend-empty">No platform layer shown</div>'}
+                </div>
+                ${discoveryLegend}
+                <div class="layer-note">Hover for venue-level fields; click a marker for a persistent popup.</div>`;
+        }
 
         Promise.all([
             fetch('data/venue_master_for_map.geojson').then(r => r.json()),
@@ -185,27 +720,41 @@
             csv('data/bge_d1_batch2_venue_summary.csv'),
             csv('data/xhs_heat_venue_normalized_metrics_v1.csv')
         ]).then(([geojson, platformRows, showstartRows, nameRows, amapBgeRows, crossBgeRows, xhsRows]) => {
-            const formal = geojson.features.filter(f => f.properties?.map_feature_id !== 'B0JABCS6YJ');
-            const platform = Object.fromEntries(platformRows.map(r => [r.canonical_venue_id || r.map_feature_id, r]));
+            const formal    = geojson.features.filter(f => f.properties?.map_feature_id !== 'B0JABCS6YJ');
+            const platform  = Object.fromEntries(platformRows.map(r  => [r.canonical_venue_id || r.map_feature_id, r]));
             const showstart = Object.fromEntries(showstartRows.map(r => [r.canonical_venue_id, r]));
-            const names = Object.fromEntries(nameRows.map(r => [r.canonical_venue_id, r]));
-            const amapBge = Object.fromEntries(amapBgeRows.map(r => [r.canonical_venue_id, r]));
-            const crossBge = Object.fromEntries(crossBgeRows.map(r => [r.canonical_venue_id, r]));
-            const xhs = Object.fromEntries(xhsRows.map(r => [r.canonical_venue_id, r]));
-            const esc = s => String(s ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-            const section = (title, body) => `<p><strong>${title}</strong><br>${body}</p>`;
+            const names     = Object.fromEntries(nameRows.map(r      => [r.canonical_venue_id, r]));
+            const amapBge   = Object.fromEntries(amapBgeRows.map(r   => [r.canonical_venue_id, r]));
+            const crossBge  = Object.fromEntries(crossBgeRows.map(r  => [r.canonical_venue_id, r]));
+            const xhs       = Object.fromEntries(xhsRows.map(r       => [r.canonical_venue_id, r]));
+            const esc       = s => String(s ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+            const section   = (title, body) => `<p><strong>${title}</strong><br>${body}</p>`;
 
             formal.forEach(feature => {
-                const p = feature.properties, id = p.map_feature_id, d = platform[id] || {}, n = names[id] || {}, a = amapBge[id], b = crossBge[id], x = xhs[id];
+                const p = feature.properties, id = p.map_feature_id;
+                const d = platform[id] || {}, n = names[id] || {}, a = amapBge[id], b = crossBge[id], x = xhs[id];
                 const popup = `<div class="info-popup"><h4>${esc(n.canonical_name_en || p.display_name)}</h4><p><strong>Source name:</strong> ${esc(p.display_name)}<br><strong>ID:</strong> ${esc(id)}</p>
-                    ${section('Amap', `Keytag: ${esc(a?.amap_keytag || d.bge_text_amap || '—')}<br>Category: ${esc(a?.amap_category || '—')}<br>Intra-platform BGE: ${num(a?.category_keytag_cosine)}`)}
-                    ${section('ShowStart', `Genres across events: ${esc(showstart[id]?.genre_names || '—')}<br>Event count: ${num(showstart[id]?.event_count || d.showstart_event_count)}`)}
-                    ${section('XHS', `Posts/screens with engagement: ${num(x?.sample_n_any_engagement)}<br>Mean likes: ${num(x?.likes_rate || '')}<br>Mean saves: ${num(x?.saves_rate || '')}`)}
+                    ${section('Amap',              `Keytag: ${esc(a?.amap_keytag || d.bge_text_amap || '—')}<br>Category: ${esc(a?.amap_category || '—')}<br>Intra-platform BGE: ${num(a?.category_keytag_cosine)}`)}
+                    ${section('ShowStart',         `Genres across events: ${esc(showstart[id]?.genre_names || '—')}<br>Event count: ${num(showstart[id]?.event_count || d.showstart_event_count)}`)}
+                    ${section('XHS',               `Posts/screens with engagement: ${num(x?.sample_n_any_engagement)}<br>Mean likes: ${num(x?.likes_rate || '')}<br>Mean saves: ${num(x?.saves_rate || '')}`)}
                     ${section('Cross-platform BGE', b ? `Captions: ${num(b.n_captions)}<br>Mean cosine: ${num(b.mean)}<br>P10/P50/P90: ${num(b.p10)} / ${num(b.p50)} / ${num(b.p90)}` : 'No BGE pair summary')}
                 </div>`;
-                const coords = feature.geometry.coordinates;
+                const coords    = feature.geometry.coordinates;
+                const genreText = showstart[id]?.genre_names || '';
+                discoveryRecords.push({
+                    id, name: n.canonical_name_en || p.display_name,
+                    lat: coords[1], lng: coords[0],
+                    genres: genreText.split('|').filter(Boolean),
+                    eventCount: showstart[id]?.event_count || d.showstart_event_count,
+                    amapCosine: a?.category_keytag_cosine,
+                    likes: x?.likes_rate, saves: x?.saves_rate,
+                    crossCosine: b?.mean, popup
+                });
                 Object.entries(layerGroups).forEach(([layer, group]) => {
-                    const present = layer === 'bge' ? Boolean(b) : layer === 'amap' ? d.has_amap === '1' : layer === 'showstart' ? d.has_showstart === '1' : d.has_xhs === '1' || Boolean(x);
+                    const present = layer === 'bge'       ? Boolean(b) :
+                                    layer === 'amap'      ? d.has_amap === '1' :
+                                    layer === 'showstart' ? d.has_showstart === '1' :
+                                                            d.has_xhs === '1' || Boolean(x);
                     if (!present) return;
                     const marker = L.circleMarker([coords[1], coords[0]], stylesByLayer[layer]);
                     marker.analyticsData = {
@@ -218,6 +767,10 @@
                     marker.bindPopup(popup); group.addLayer(marker);
                 });
             });
+            renderDiscovery();
+            refreshDiscoveryControls();
+            updateLegend();
+            setMapLoading();
             discoveryState.mapLoaded = true;
             track('map_data_loaded', {
                 venue_count: formal.length,
@@ -227,21 +780,81 @@
             markDiscovery();
             console.log(`Loaded formal inventory: ${formal.length} venues`);
         }).catch(err => {
+            setMapLoading('Map data unavailable.');
             track('map_data_load_failed', {
                 error_type: err?.name || 'Error',
                 is_qa: false
             });
             console.error('Could not load map data:', err);
         });
+
         L.control.layers(null, {
-            'Amap': layerGroups.amap,
-            'ShowStart': layerGroups.showstart,
-            'XHS': layerGroups.xhs,
-            'Cross-platform BGE': layerGroups.bge
+            'Amap':               layerGroups.amap,
+            'ShowStart':          layerGroups.showstart,
+            'XHS':                layerGroups.xhs,
+            '3-platform BGE–available venues': layerGroups.bge,
+            'Discovery mode':     discoveryLayer
         }, { collapsed: false, position: 'topright' }).addTo(map);
 
-        const layerNameByGroup = new Map(Object.entries(layerGroups).map(([name, group]) => [group, name]));
+        const discoveryControl = L.control({ position: 'topleft' });
+        discoveryControl.onAdd = () => {
+            const div = L.DomUtil.create('div', 'discovery-control');
+            div.innerHTML = `<label>Discovery mode</label><select id="discovery-mode">
+                <option value="showstart_genre">ShowStart genre</option>
+                <option value="showstart_events">ShowStart event count</option>
+                <option value="amap_similarity">Amap category–keytag BGE</option>
+                <option value="xhs_likes">XHS mean likes</option>
+                <option value="xhs_saves">XHS mean saves</option>
+                <option value="cross_bge" selected>Cross-platform BGE</option>
+            </select><select id="discovery-keyword"></select>
+            <div class="layer-note">Brighter/larger = higher value. This is a discovery overlay, not a new thesis index.</div>`;
+            L.DomEvent.disableClickPropagation(div);
+            return div;
+        };
+        discoveryControl.addTo(map);
+
+        const mode    = document.getElementById('discovery-mode');
+        const keyword = document.getElementById('discovery-keyword');
+        refreshDiscoveryControls = () => {
+            const previousKeyword = keyword.value;
+            const genres = [...new Set(discoveryRecords.flatMap(r => r.genres))].sort();
+            keyword.innerHTML = genres.map(g => `<option>${g}</option>`).join('');
+            if (genres.includes(previousKeyword)) keyword.value = previousKeyword;
+            keyword.style.display = mode.value === 'showstart_genre' ? 'block' : 'none';
+            discoveryMode = mode.value;
+            discoveryKeyword = keyword.value;
+            renderDiscovery();
+            updateLegend();
+        };
+        mode.addEventListener('change', refreshDiscoveryControls);
+        mode.addEventListener('change', () => {
+            track('discovery_mode_changed', { discovery_mode: mode.value });
+        });
+        keyword.addEventListener('change', () => {
+            discoveryKeyword = keyword.value;
+            renderDiscovery();
+            updateLegend();
+            track('discovery_keyword_changed', {
+                discovery_mode: discoveryMode,
+                discovery_keyword: discoveryKeyword
+            });
+        });
+        refreshDiscoveryControls();
+
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = () => {
+            const div = L.DomUtil.create('div', 'legend');
+            legendContainer = div;
+            updateLegend();
+            return div;
+        };
+        legend.addTo(map);
+        const layerNameByGroup = new Map([
+            ...Object.entries(layerGroups).map(([name, group]) => [group, name]),
+            [discoveryLayer, 'discovery']
+        ]);
         map.on('overlayadd overlayremove', event => {
+            updateLegend();
             const platformLayer = layerNameByGroup.get(event.layer) || 'unknown';
             discoveryState.layersToggled.add(platformLayer);
             track('map_layer_toggled', {
@@ -274,42 +887,78 @@
             }
         });
 
-        const legend = L.control({ position: 'bottomright' });
-        legend.onAdd = () => {
-            const div = L.DomUtil.create('div', 'legend');
-            div.innerHTML = `<div style="font-weight: bold; margin-bottom: 8px;">Platform layers</div>
-                <div class="legend-item"><div class="legend-dot" style="background:#2166AC"></div><span>Amap</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#D6604D"></div><span>ShowStart</span></div>
-                <div class="legend-item"><div class="legend-dot" style="background:#1B9E77"></div><span>XHS</span></div>
-                <div class="legend-item"><div class="legend-dot" style="border:3px solid #25262B;background:white"></div><span>Cross-platform BGE</span></div>
-                <div class="layer-note">Hover for venue-level fields; click a marker for a persistent popup.</div>`;
-            return div;
+        const navToggle = document.querySelector('.nav-toggle');
+        const setNavCollapsed = (collapsed) => {
+            document.body.classList.toggle('nav-collapsed', collapsed);
+            navToggle.setAttribute('aria-expanded', String(!collapsed));
+            navToggle.setAttribute('aria-label', collapsed ? 'Expand section navigation' : 'Collapse section navigation');
+            navToggle.textContent = collapsed ? '›' : '‹';
+            setTimeout(() => map.invalidateSize(), 230);
         };
-        legend.addTo(map);
-
-    </script>
-    <section id="figure-4-5" class="analysis-section">
-        <h2>Figure 4.5 — Pairwise cosine similarity and projected semantic space</h2>
-        <img class="analysis-figure" data-figure-id="figure-4-5" src="assets/fig_4_5_pairwise_and_pca.png" alt="Figure 4.5: pairwise cosine similarity and paired Amap-Xiaohongshu positions in projected semantic space" />
-    </section>
-    <section id="anchor-probing" class="analysis-section">
-        <h2>Post-Submission: Anchor Probing (August 2026)</h2>
-        <p>Phase 3 anchor probing compares 32 venue-level difference vectors grouped into seven rank-1 Amap-anchor categories. Using jieba segmentation across n=153,290 tokens, the Amap end is relatively stable while the XHS caption end is more dispersed. The right panel shows the existing venue-level Amap–XHS cosine distance (1 − similarity) for the venues with a Phase 2 venue-specific probe vector. LISTEN is omitted because it has a thesis distance but no Phase 2 venue-specific probe vector. These results are lexical and platform-specific; multimodal evidence was not tested, so the figure does not attribute dispersion to images or video.</p>
-        <img class="analysis-figure" data-figure-id="anchor-probing-figure" src="assets/portfolio_anchor_vs_distance.svg" alt="Anchor probing comparison of lexical difference vectors and Amap-XHS cosine distance" />
-    </section>
-    <script>
-        const mapSectionNav = document.querySelector('.map-section-nav');
-        const mapViewport = document.getElementById('map');
-        mapSectionNav.addEventListener('click', event => {
-            const link = event.target.closest('a[href^="#"]');
-            if (!link) return;
-            track('analysis_nav_clicked', { analysis_id: link.getAttribute('href').slice(1) });
+        navToggle.addEventListener('click', () => {
+            setNavCollapsed(!document.body.classList.contains('nav-collapsed'));
         });
+        document.querySelectorAll('.nav-card').forEach(link => {
+            link.addEventListener('click', () => {
+                track('analysis_nav_clicked', {
+                    analysis_id: link.dataset.analysisId || link.getAttribute('href').slice(1)
+                });
+                if (window.matchMedia('(max-width: 640px)').matches) setNavCollapsed(true);
+            });
+        });
+
+        const sectionNav = document.querySelector('.card-nav');
+        const sectionLinks = [...document.querySelectorAll('.nav-card')];
+        const trackedSections = sectionLinks.map(link => ({
+            link,
+            section: document.querySelector(link.getAttribute('href'))
+        })).filter(item => item.section);
+        let activeSectionId = '';
+        let sectionUpdateQueued = false;
+
+        const setActiveSection = (item) => {
+            const sectionId = item.section.id;
+            if (sectionId === activeSectionId) return;
+            activeSectionId = sectionId;
+            sectionLinks.forEach(link => {
+                const active = link === item.link;
+                link.classList.toggle('is-active', active);
+                if (active) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
+            const targetTop = item.link.offsetTop - (sectionNav.clientHeight - item.link.offsetHeight) / 2;
+            sectionNav.scrollTo({
+                top: Math.max(0, targetTop),
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+            });
+        };
+
+        const updateActiveSection = () => {
+            const viewportMiddle = window.innerHeight / 2;
+            const activeItem = trackedSections.reduce((closest, item) => {
+                const rect = item.section.getBoundingClientRect();
+                const distance = rect.top <= viewportMiddle && rect.bottom >= viewportMiddle
+                    ? 0
+                    : Math.min(Math.abs(rect.top - viewportMiddle), Math.abs(rect.bottom - viewportMiddle));
+                return !closest || distance < closest.distance ? { ...item, distance } : closest;
+            }, null);
+            if (activeItem) setActiveSection(activeItem);
+            sectionUpdateQueued = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (sectionUpdateQueued) return;
+            sectionUpdateQueued = true;
+            window.requestAnimationFrame(updateActiveSection);
+        }, { passive: true });
+        window.addEventListener('resize', updateActiveSection);
+        updateActiveSection();
+        if (window.matchMedia('(max-width: 640px)').matches) setNavCollapsed(true);
 
         const analysisTimers = new Map();
         const analysisObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                const analysisId = entry.target.closest('.analysis-section')?.id;
+                const analysisId = entry.target.id;
                 if (!analysisId) return;
                 if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
                     if (analysisTimers.has(analysisId) || discoveryState.analysesViewed.has(analysisId)) return;
@@ -325,13 +974,13 @@
                 }
             });
         }, { threshold: [0.5] });
-        document.querySelectorAll('.analysis-section h2').forEach(heading => analysisObserver.observe(heading));
+        document.querySelectorAll('#figure-4-5, #anchor-probing').forEach(section => analysisObserver.observe(section));
 
         const figureTimers = new Map();
         const figureObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 const figureId = entry.target.dataset.figureId;
-                const analysisId = entry.target.closest('.analysis-section')?.id;
+                const analysisId = entry.target.closest('.section-divider')?.id;
                 const sessionKey = `venue_map_figure_viewed:${figureId}`;
                 if (!figureId || !analysisId || sessionStorage.getItem(sessionKey)) return;
                 if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
@@ -353,13 +1002,6 @@
         }, { threshold: [0.35] });
         document.querySelectorAll('.analysis-figure[data-figure-id]').forEach(figure => figureObserver.observe(figure));
 
-        const updateMapSectionNav = () => {
-            const mapBottom = mapViewport.offsetTop + mapViewport.offsetHeight;
-            mapSectionNav.classList.toggle('is-hidden', window.scrollY > mapBottom - 24);
-        };
-        window.addEventListener('scroll', updateMapSectionNav, { passive: true });
-        window.addEventListener('resize', updateMapSectionNav);
-        updateMapSectionNav();
     </script>
 </body>
 </html>
