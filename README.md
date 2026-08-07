@@ -1,9 +1,7 @@
 # Interactive venue map
 
-github pages link
-```
-https://bubble-well.github.io/Thesis-Shanghai-live-venue-map/
-```
+- China: https://jiyiji.cn/webqing/shanghai-venue-map/
+- Overseas (GitHub Pages): https://bubble-well.github.io/Thesis-Shanghai-live-venue-map/
 
 Open `index.html` in a browser to explore the formal Shanghai venue inventory (n=67). It is the canonical GitHub Pages entrypoint; `interactive_venue_map.html` is retained only as a legacy development copy.
 
