@@ -234,9 +234,32 @@
         }
         #tencent-basemap { z-index: 0; }
         .basemap-mask {
-            z-index: 1;
+            z-index: 3;
             pointer-events: none;
             background: rgba(244, 247, 250, 0.18);
+        }
+        .venue-dom-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .venue-dom-marker {
+            position: absolute;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border-style: solid;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transform: translate(-50%, -50%);
+            transition: filter 0.12s ease, transform 0.12s ease;
+        }
+        .venue-dom-marker:hover,
+        .venue-dom-marker:focus-visible {
+            filter: brightness(1.08) drop-shadow(0 0 4px rgba(15, 23, 42, 0.45));
+            outline: none;
+            transform: translate(-50%, -50%) scale(1.18);
         }
         #tencent-basemap .tmap-zoom-control,
         #tencent-basemap .rotate-circle { display: none !important; }
@@ -710,6 +733,7 @@
                     viewMode: '2D',
                     baseMap: { type: 'vector', features: ['base', 'label'] }
                 });
+                document.getElementById('tencent-basemap').appendChild(document.querySelector('.basemap-mask'));
                 usesTencentBasemap = true;
             } catch (error) {
                 console.warn('Tencent basemap unavailable; using CartoDB fallback.', error);
@@ -739,13 +763,6 @@
             showstart: { color: '#D6604D', fillColor: '#D6604D', fillOpacity: 0.82, radius: 6 },
             xhs:       { color: '#1B9E77', fillColor: '#1B9E77', fillOpacity: 0.82, radius: 6 },
             bge:       { color: '#60A5FA', fillColor: '#EFF6FF', fillOpacity: 0.72, weight: 1.25, radius: 8, className: 'bge-marker' }
-        };
-
-        const circleMarkerDataUrl = ({ fill, stroke, fillOpacity = 0.85, strokeWidth = 1, radius }) => {
-            const size = Math.ceil(radius * 2 + strokeWidth * 4);
-            const center = size / 2;
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${center}" cy="${center}" r="${radius}" fill="${fill}" fill-opacity="${fillOpacity}" stroke="${stroke}" stroke-width="${strokeWidth}"/></svg>`;
-            return { size, src: `data:image/svg+xml;base64,${window.btoa(svg)}` };
         };
 
         let tencentPopup = null;
@@ -780,33 +797,108 @@
             });
         };
 
+        const tencentVenueOverlay = usesTencentBasemap ? (() => {
+            function VenueDomOverlay(options) {
+                tencentSdk.DOMOverlay.call(this, options);
+            }
+            VenueDomOverlay.prototype = new tencentSdk.DOMOverlay();
+            VenueDomOverlay.prototype.onInit = function() {
+                this.groups = new Map();
+            };
+            VenueDomOverlay.prototype.createDOM = function() {
+                const container = document.createElement('div');
+                container.className = 'venue-dom-layer';
+                return container;
+            };
+            VenueDomOverlay.prototype.onDestroy = function() {
+                this.dom?.replaceChildren();
+                this.groups.clear();
+            };
+            VenueDomOverlay.prototype.setGroup = function(name, geometries, visible = true, zIndex = 0) {
+                this.groups.set(name, { geometries, visible, zIndex });
+                this.renderGroups();
+            };
+            VenueDomOverlay.prototype.setGroupVisible = function(name, visible) {
+                const group = this.groups.get(name);
+                if (!group) return;
+                group.visible = visible;
+                this.dom?.querySelectorAll(`[data-layer="${name}"]`).forEach(marker => {
+                    marker.hidden = !visible;
+                });
+            };
+            VenueDomOverlay.prototype.renderGroups = function() {
+                if (!this.dom) return;
+                const fragment = document.createDocumentFragment();
+                [...this.groups.entries()]
+                    .sort(([, a], [, b]) => a.zIndex - b.zIndex)
+                    .forEach(([name, group]) => group.geometries.forEach(geometry => {
+                        const visual = geometry.visual;
+                        const marker = document.createElement('button');
+                        marker.type = 'button';
+                        marker.className = 'venue-dom-marker';
+                        marker.dataset.layer = name;
+                        marker.hidden = !group.visible;
+                        marker.setAttribute('aria-label', geometry.properties.label);
+                        marker.style.width = `${visual.radius * 2}px`;
+                        marker.style.height = `${visual.radius * 2}px`;
+                        marker.style.background = visual.fill;
+                        marker.style.borderColor = visual.stroke;
+                        marker.style.borderWidth = `${visual.strokeWidth}px`;
+                        marker.style.opacity = visual.fillOpacity;
+                        marker.style.zIndex = group.zIndex;
+                        if (visual.shadow) marker.style.boxShadow = visual.shadow;
+                        marker.addEventListener('mouseenter', () => handleTencentHover({ geometry }));
+                        marker.addEventListener('mouseleave', closeTencentTooltip);
+                        marker.addEventListener('focus', () => handleTencentHover({ geometry }));
+                        marker.addEventListener('blur', closeTencentTooltip);
+                        marker.addEventListener('click', event => {
+                            event.stopPropagation();
+                            openTencentPopup(geometry);
+                        });
+                        marker._venueGeometry = geometry;
+                        fragment.appendChild(marker);
+                    }));
+                this.dom.replaceChildren(fragment);
+                this.updateDOM();
+            };
+            VenueDomOverlay.prototype.updateDOM = function() {
+                if (!this.map || !this.dom) return;
+                const projectedVenues = new Map();
+                this.dom.querySelectorAll('.venue-dom-marker').forEach(marker => {
+                    const geometry = marker._venueGeometry;
+                    const venueId = geometry.properties.analyticsData.venue_id;
+                    let pixel = projectedVenues.get(venueId);
+                    if (!pixel) {
+                        pixel = this.map.projectToContainer(geometry.position);
+                        projectedVenues.set(venueId, pixel);
+                    }
+                    marker.style.left = `${pixel.getX()}px`;
+                    marker.style.top = `${pixel.getY()}px`;
+                });
+            };
+            return new VenueDomOverlay({ map });
+        })() : null;
+
+        const createTencentGroup = (name, zIndex) => {
+            let geometries = [];
+            let visible = true;
+            return {
+                setGeometries(nextGeometries) {
+                    geometries = nextGeometries;
+                    tencentVenueOverlay.setGroup(name, geometries, visible, zIndex);
+                },
+                setVisible(nextVisible) {
+                    visible = nextVisible;
+                    tencentVenueOverlay.setGroupVisible(name, visible);
+                }
+            };
+        };
+
         const createPlatformGroup = (layerName, style, zIndex) => {
             if (!usesTencentBasemap) {
                 return { raw: L.layerGroup().addTo(map), visible: true };
             }
-            const icon = circleMarkerDataUrl({
-                fill: style.fillColor,
-                stroke: style.color,
-                fillOpacity: style.fillOpacity,
-                strokeWidth: style.weight || 1,
-                radius: style.radius
-            });
-            const raw = new tencentSdk.MultiMarker({
-                id: `venue-${layerName}`,
-                map,
-                zIndex,
-                styles: {
-                    marker: new tencentSdk.MarkerStyle({
-                        width: icon.size,
-                        height: icon.size,
-                        anchor: { x: icon.size / 2, y: icon.size / 2 },
-                        src: icon.src
-                    })
-                },
-                geometries: []
-            });
-            raw.on('click', event => event?.geometry && openTencentPopup(event.geometry));
-            raw.on('hover', handleTencentHover);
+            const raw = createTencentGroup(layerName, zIndex);
             return { raw, visible: true, geometries: [] };
         };
 
@@ -817,12 +909,8 @@
             bge:       createPlatformGroup('bge', stylesByLayer.bge, 23)
         };
         const discoveryLayer = usesTencentBasemap
-            ? { raw: new tencentSdk.MultiMarker({ id: 'venue-discovery', map, zIndex: 30, styles: {}, geometries: [] }), visible: true }
+            ? { raw: createTencentGroup('discovery', 30), visible: true }
             : { raw: L.layerGroup().addTo(map), visible: true };
-        if (usesTencentBasemap) {
-            discoveryLayer.raw.on('click', event => event?.geometry && openTencentPopup(event.geometry));
-            discoveryLayer.raw.on('hover', handleTencentHover);
-        }
         const discoveryMarkers = [];
         let discoveryRecords   = [];
         let discoveryMode      = 'cross_bge';
@@ -898,7 +986,6 @@
             discoveryMarkers.length = 0;
             const scored  = discoveryRecords.map(record => ({ record, score: discoveryScore(record) })).filter(x => x.score !== null);
             const values  = scored.map(x => x.score), min = Math.min(...values), max = Math.max(...values);
-            const tencentStyles = {};
             const tencentGeometries = [];
             scored.forEach(({ record, score }) => {
                 const t = max === min ? 1 : (score - min) / (max - min);
@@ -909,27 +996,18 @@
                     engagement_unit: 'card'
                 };
                 if (usesTencentBasemap) {
-                    const bucket = Math.round(t * 12);
-                    const styleId = `heat-${bucket}`;
-                    if (!tencentStyles[styleId]) {
-                        const bucketT = bucket / 12;
-                        const icon = circleMarkerDataUrl({
-                            fill: heatColor(bucketT),
-                            stroke: heatColor(bucketT),
-                            radius: 5 + 7 * bucketT
-                        });
-                        tencentStyles[styleId] = new tencentSdk.MarkerStyle({
-                            width: icon.size,
-                            height: icon.size,
-                            anchor: { x: icon.size / 2, y: icon.size / 2 },
-                            src: icon.src
-                        });
-                    }
                     tencentGeometries.push({
                         id: `discovery-${record.id}`,
-                        styleId,
                         position: new tencentSdk.LatLng(record.lat, record.lng),
+                        visual: {
+                            fill: heatColor(t),
+                            stroke: heatColor(t),
+                            fillOpacity: 0.85,
+                            strokeWidth: 1,
+                            radius: 5 + 7 * t
+                        },
                         properties: {
+                            label: `${record.name}: ${score.toFixed(2)}`,
                             tooltip: `${escapeLegendText(record.name)}: ${score.toFixed(2)}`,
                             popup: record.popup,
                             analyticsData
@@ -945,7 +1023,6 @@
                 }
             });
             if (usesTencentBasemap) {
-                discoveryLayer.raw.setStyles(tencentStyles);
                 discoveryLayer.raw.setGeometries(tencentGeometries);
             }
         }
@@ -1035,9 +1112,17 @@
                     if (usesTencentBasemap) {
                         group.geometries.push({
                             id: `${layer}-${id}`,
-                            styleId: 'marker',
                             position: new tencentSdk.LatLng(mapLat, mapLng),
+                            visual: {
+                                fill: stylesByLayer[layer].fillColor,
+                                stroke: stylesByLayer[layer].color,
+                                fillOpacity: stylesByLayer[layer].fillOpacity,
+                                strokeWidth: stylesByLayer[layer].weight || 1,
+                                radius: stylesByLayer[layer].radius,
+                                shadow: layer === 'bge' ? '0 0 3px #60A5FA, 0 0 6px rgba(219, 234, 254, 0.9)' : ''
+                            },
                             properties: {
+                                label: p.display_name,
                                 tooltip: esc(p.display_name),
                                 popup,
                                 analyticsData
