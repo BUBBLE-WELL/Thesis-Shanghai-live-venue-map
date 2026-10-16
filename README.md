@@ -5,7 +5,7 @@
 
 Open `index.html` in a browser to explore the formal Shanghai venue inventory (n=67). It is the canonical GitHub Pages entrypoint; `interactive_venue_map.html` is retained only as a legacy development copy.
 
-Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/`. GitHub Pages uses Leaflet with CartoDB Positron. The China mirror keeps the Leaflet interaction and research layers but places them over a Tencent vector basemap, converts the WGS84 research coordinates to GCJ-02 at runtime, and limits Tencent's vector features to `base` beneath a light colour mask. This reduces visual noise without changing the underlying venue data.
+Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/`. GitHub Pages uses Leaflet with CartoDB Positron. The China mirror uses a single Tencent GL engine for the basemap, research markers, discovery overlay, and popup interactions. It converts the WGS84 research coordinates to GCJ-02 at runtime and limits Tencent's vector features to `base` and `label` beneath a light colour mask. This preserves useful geographic captions and smooth native GL navigation without changing the underlying venue data.
 
 ## Prepare the China release
 

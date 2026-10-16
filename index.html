@@ -236,19 +236,58 @@
         .basemap-mask {
             z-index: 1;
             pointer-events: none;
-            background: rgba(244, 247, 250, 0.30);
+            background: rgba(244, 247, 250, 0.18);
         }
         #tencent-basemap .tmap-zoom-control,
         #tencent-basemap .rotate-circle { display: none !important; }
         #interactive-map.uses-tencent-basemap #tencent-basemap,
         #interactive-map.uses-tencent-basemap .basemap-mask { display: block; }
         #interactive-map.uses-tencent-basemap #map {
+            display: none;
+        }
+        .gl-map-controls {
             position: absolute;
             inset: 0;
-            z-index: 2;
-            background: transparent;
+            z-index: 650;
+            pointer-events: none;
         }
-        #interactive-map.uses-tencent-basemap .leaflet-container { background: transparent; }
+        .gl-map-controls > * { pointer-events: auto; }
+        .gl-zoom-control {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: grid;
+            overflow: hidden;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 6px 20px rgba(24, 39, 58, 0.16);
+        }
+        .gl-zoom-control button {
+            width: 34px;
+            height: 34px;
+            border: 0;
+            background: transparent;
+            color: #1f2937;
+            font: 500 20px/1 sans-serif;
+            cursor: pointer;
+        }
+        .gl-zoom-control button + button { border-top: 1px solid #e5e7eb; }
+        .gl-zoom-control button:hover { background: #f1f4f7; }
+        .gl-zoom-control button:focus-visible { outline: 3px solid rgba(33, 102, 172, 0.28); outline-offset: -3px; }
+        .gl-discovery-control { position: absolute; top: 10px; left: 54px; }
+        .gl-layer-control {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 6px 20px rgba(24, 39, 58, 0.16);
+            font-size: 12px;
+        }
+        .gl-layer-control label { display: block; margin: 3px 0; white-space: nowrap; }
+        .gl-layer-control input { accent-color: #2166AC; margin-right: 5px; }
+        .gl-legend { position: absolute; right: 10px; bottom: 24px; }
         .map-loading {
             position: absolute;
             z-index: 700;
@@ -285,6 +324,7 @@
         }
         .info-popup h4 { margin-bottom: 6px; color: #1a1a1a; }
         .info-popup p  { margin: 4px 0; color: #555; line-height: 1.4; }
+        .map-tooltip { padding: 2px 4px; color: #1f2937; font-size: 12px; white-space: nowrap; }
         .class-badge {
             display: inline-block;
             padding: 2px 6px;
@@ -377,6 +417,15 @@
                 width: calc(100cqw - 20px);
                 min-width: 0;
             }
+        }
+        @media (max-width: 640px) {
+            .gl-discovery-control {
+                top: 146px;
+                left: 10px;
+                width: calc(100% - 20px);
+                min-width: 0;
+            }
+            .gl-layer-control { max-width: calc(100% - 70px); }
         }
 
         /* ─────────────────────────────────────────────
@@ -647,18 +696,19 @@
             document.head.appendChild(script);
         });
 
+        let tencentSdk = null;
         let tencentMap = null;
         let usesTencentBasemap = false;
         if (wantsTencentBasemap && tencentMapKey) {
             try {
-                const TMap = await loadTencentSdk(tencentMapKey);
+                tencentSdk = await loadTencentSdk(tencentMapKey);
                 const [centerLat, centerLng] = wgs84ToGcj02(initialView.lat, initialView.lng);
                 document.getElementById('interactive-map').classList.add('uses-tencent-basemap');
-                tencentMap = new TMap.Map(document.getElementById('tencent-basemap'), {
-                    center: new TMap.LatLng(centerLat, centerLng),
+                tencentMap = new tencentSdk.Map(document.getElementById('tencent-basemap'), {
+                    center: new tencentSdk.LatLng(centerLat, centerLng),
                     zoom: initialView.zoom,
                     viewMode: '2D',
-                    baseMap: { type: 'vector', features: ['base'] }
+                    baseMap: { type: 'vector', features: ['base', 'label'] }
                 });
                 usesTencentBasemap = true;
             } catch (error) {
@@ -670,23 +720,13 @@
 
         const mapCoordinates = (lat, lng) => usesTencentBasemap ? wgs84ToGcj02(lat, lng) : [lat, lng];
         const [initialLat, initialLng] = mapCoordinates(initialView.lat, initialView.lng);
-        const map = L.map('map').setView([initialLat, initialLng], initialView.zoom);
+        const map = usesTencentBasemap
+            ? tencentMap
+            : L.map('map').setView([initialLat, initialLng], initialView.zoom);
         const basemapProvider = usesTencentBasemap ? 'tencent-vector' : 'cartodb-positron';
         track('map_initialized', { initial_zoom: initialView.zoom, basemap_provider: basemapProvider });
 
-        if (usesTencentBasemap) {
-            let syncFrame = null;
-            const syncTencentView = () => {
-                if (syncFrame !== null) return;
-                syncFrame = window.requestAnimationFrame(() => {
-                    syncFrame = null;
-                    const center = map.getCenter();
-                    tencentMap.setCenter(new window.TMap.LatLng(center.lat, center.lng));
-                    tencentMap.setZoom(map.getZoom());
-                });
-            };
-            map.on('move zoom resize', syncTencentView);
-        } else {
+        if (!usesTencentBasemap) {
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 attribution: '© CartoDB contributors',
                 maxZoom: 20
@@ -701,13 +741,88 @@
             bge:       { color: '#60A5FA', fillColor: '#EFF6FF', fillOpacity: 0.72, weight: 1.25, radius: 8, className: 'bge-marker' }
         };
 
-        const layerGroups = {
-            amap:      L.layerGroup().addTo(map),
-            showstart: L.layerGroup().addTo(map),
-            xhs:       L.layerGroup().addTo(map),
-            bge:       L.layerGroup().addTo(map)
+        const circleMarkerDataUrl = ({ fill, stroke, fillOpacity = 0.85, strokeWidth = 1, radius }) => {
+            const size = Math.ceil(radius * 2 + strokeWidth * 4);
+            const center = size / 2;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${center}" cy="${center}" r="${radius}" fill="${fill}" fill-opacity="${fillOpacity}" stroke="${stroke}" stroke-width="${strokeWidth}"/></svg>`;
+            return { size, src: `data:image/svg+xml;base64,${window.btoa(svg)}` };
         };
-        const discoveryLayer   = L.layerGroup().addTo(map);
+
+        let tencentPopup = null;
+        let tencentTooltip = null;
+        const closeTencentTooltip = () => {
+            if (tencentTooltip) tencentTooltip.close();
+            tencentTooltip = null;
+        };
+        const openTencentPopup = geometry => {
+            closeTencentTooltip();
+            if (tencentPopup) tencentPopup.close();
+            tencentPopup = new tencentSdk.InfoWindow({
+                map,
+                position: geometry.position,
+                content: geometry.properties.popup,
+                offset: { x: 0, y: -12 }
+            });
+            const markerData = geometry.properties.analyticsData;
+            discoveryState.venuesOpened.add(markerData.venue_id);
+            track('venue_popup_opened', markerData);
+            markDiscovery();
+        };
+        const handleTencentHover = event => {
+            closeTencentTooltip();
+            if (!event?.geometry) return;
+            const geometry = event.geometry;
+            tencentTooltip = new tencentSdk.InfoWindow({
+                map,
+                position: geometry.position,
+                content: `<div class="map-tooltip">${geometry.properties.tooltip}</div>`,
+                offset: { x: 0, y: -10 }
+            });
+        };
+
+        const createPlatformGroup = (layerName, style, zIndex) => {
+            if (!usesTencentBasemap) {
+                return { raw: L.layerGroup().addTo(map), visible: true };
+            }
+            const icon = circleMarkerDataUrl({
+                fill: style.fillColor,
+                stroke: style.color,
+                fillOpacity: style.fillOpacity,
+                strokeWidth: style.weight || 1,
+                radius: style.radius
+            });
+            const raw = new tencentSdk.MultiMarker({
+                id: `venue-${layerName}`,
+                map,
+                zIndex,
+                styles: {
+                    marker: new tencentSdk.MarkerStyle({
+                        width: icon.size,
+                        height: icon.size,
+                        anchor: { x: icon.size / 2, y: icon.size / 2 },
+                        src: icon.src
+                    })
+                },
+                geometries: []
+            });
+            raw.on('click', event => event?.geometry && openTencentPopup(event.geometry));
+            raw.on('hover', handleTencentHover);
+            return { raw, visible: true, geometries: [] };
+        };
+
+        const layerGroups = {
+            amap:      createPlatformGroup('amap', stylesByLayer.amap, 20),
+            showstart: createPlatformGroup('showstart', stylesByLayer.showstart, 21),
+            xhs:       createPlatformGroup('xhs', stylesByLayer.xhs, 22),
+            bge:       createPlatformGroup('bge', stylesByLayer.bge, 23)
+        };
+        const discoveryLayer = usesTencentBasemap
+            ? { raw: new tencentSdk.MultiMarker({ id: 'venue-discovery', map, zIndex: 30, styles: {}, geometries: [] }), visible: true }
+            : { raw: L.layerGroup().addTo(map), visible: true };
+        if (usesTencentBasemap) {
+            discoveryLayer.raw.on('click', event => event?.geometry && openTencentPopup(event.geometry));
+            discoveryLayer.raw.on('hover', handleTencentHover);
+        }
         const discoveryMarkers = [];
         let discoveryRecords   = [];
         let discoveryMode      = 'cross_bge';
@@ -775,29 +890,72 @@
         };
 
         function renderDiscovery() {
-            discoveryLayer.clearLayers();
+            if (usesTencentBasemap) {
+                discoveryLayer.raw.setGeometries([]);
+            } else {
+                discoveryLayer.raw.clearLayers();
+            }
             discoveryMarkers.length = 0;
             const scored  = discoveryRecords.map(record => ({ record, score: discoveryScore(record) })).filter(x => x.score !== null);
             const values  = scored.map(x => x.score), min = Math.min(...values), max = Math.max(...values);
+            const tencentStyles = {};
+            const tencentGeometries = [];
             scored.forEach(({ record, score }) => {
                 const t = max === min ? 1 : (score - min) / (max - min);
-                const marker = L.circleMarker([record.lat, record.lng], { color: heatColor(t), fillColor: heatColor(t), fillOpacity: 0.85, weight: 1, radius: 5 + 7 * t });
-                marker.analyticsData = {
+                const analyticsData = {
                     venue_id: record.id,
                     platform_layer: 'discovery',
                     card_type: 'venue_popup',
                     engagement_unit: 'card'
                 };
-                marker.bindTooltip(`${record.name}: ${score.toFixed(2)}`, { sticky: true });
-                marker.bindPopup(record.popup);
-                discoveryLayer.addLayer(marker); discoveryMarkers.push(marker);
+                if (usesTencentBasemap) {
+                    const bucket = Math.round(t * 12);
+                    const styleId = `heat-${bucket}`;
+                    if (!tencentStyles[styleId]) {
+                        const bucketT = bucket / 12;
+                        const icon = circleMarkerDataUrl({
+                            fill: heatColor(bucketT),
+                            stroke: heatColor(bucketT),
+                            radius: 5 + 7 * bucketT
+                        });
+                        tencentStyles[styleId] = new tencentSdk.MarkerStyle({
+                            width: icon.size,
+                            height: icon.size,
+                            anchor: { x: icon.size / 2, y: icon.size / 2 },
+                            src: icon.src
+                        });
+                    }
+                    tencentGeometries.push({
+                        id: `discovery-${record.id}`,
+                        styleId,
+                        position: new tencentSdk.LatLng(record.lat, record.lng),
+                        properties: {
+                            tooltip: `${escapeLegendText(record.name)}: ${score.toFixed(2)}`,
+                            popup: record.popup,
+                            analyticsData
+                        }
+                    });
+                } else {
+                    const marker = L.circleMarker([record.lat, record.lng], { color: heatColor(t), fillColor: heatColor(t), fillOpacity: 0.85, weight: 1, radius: 5 + 7 * t });
+                    marker.analyticsData = analyticsData;
+                    marker.bindTooltip(`${record.name}: ${score.toFixed(2)}`, { sticky: true });
+                    marker.bindPopup(record.popup);
+                    discoveryLayer.raw.addLayer(marker);
+                    discoveryMarkers.push(marker);
+                }
             });
+            if (usesTencentBasemap) {
+                discoveryLayer.raw.setStyles(tencentStyles);
+                discoveryLayer.raw.setGeometries(tencentGeometries);
+            }
         }
+
+        const isLayerVisible = group => usesTencentBasemap ? group.visible : map.hasLayer(group.raw);
 
         function updateLegend() {
             if (!legendContainer) return;
             const visibleLayers = platformLegendItems
-                .filter(item => map.hasLayer(item.group))
+                .filter(item => isLayerVisible(item.group))
                 .map(item => `<div class="legend-item"><div class="legend-dot" style="${item.dot}"></div><span>${item.label}</span></div>`)
                 .join('');
             const genreSuffix = discoveryMode === 'showstart_genre' && discoveryKeyword
@@ -807,7 +965,7 @@
                 ? 'linear-gradient(90deg, hsl(8, 78%, 52%), hsl(64, 78%, 47%), hsl(120, 78%, 42%))'
                 : 'linear-gradient(90deg, hsl(220, 85%, 42%), hsl(118, 85%, 51%), hsl(15, 85%, 60%))';
             const rampLabel = isSimilarityMode() ? 'Lower similarity → higher similarity' : 'Lower → higher';
-            const discoveryLegend = map.hasLayer(discoveryLayer) ? `
+            const discoveryLegend = isLayerVisible(discoveryLayer) ? `
                 <div class="legend-section">
                     <div class="legend-title">Discovery overlay</div>
                     <div class="legend-item discovery-scale"><div class="legend-ramp" style="background:${rampBackground}"></div><span>${rampLabel}</span></div>
@@ -868,17 +1026,35 @@
                                     layer === 'showstart' ? d.has_showstart === '1' :
                                                             d.has_xhs === '1' || Boolean(x);
                     if (!present) return;
-                    const marker = L.circleMarker([mapLat, mapLng], stylesByLayer[layer]);
-                    marker.analyticsData = {
+                    const analyticsData = {
                         venue_id: id,
                         platform_layer: layer,
                         card_type: 'venue_popup',
                         engagement_unit: 'card'
                     };
-                    marker.bindTooltip(esc(p.display_name), { sticky: true });
-                    marker.bindPopup(popup); group.addLayer(marker);
+                    if (usesTencentBasemap) {
+                        group.geometries.push({
+                            id: `${layer}-${id}`,
+                            styleId: 'marker',
+                            position: new tencentSdk.LatLng(mapLat, mapLng),
+                            properties: {
+                                tooltip: esc(p.display_name),
+                                popup,
+                                analyticsData
+                            }
+                        });
+                    } else {
+                        const marker = L.circleMarker([mapLat, mapLng], stylesByLayer[layer]);
+                        marker.analyticsData = analyticsData;
+                        marker.bindTooltip(esc(p.display_name), { sticky: true });
+                        marker.bindPopup(popup);
+                        group.raw.addLayer(marker);
+                    }
                 });
             });
+            if (usesTencentBasemap) {
+                Object.values(layerGroups).forEach(group => group.raw.setGeometries(group.geometries));
+            }
             renderDiscovery();
             refreshDiscoveryControls();
             updateLegend();
@@ -900,18 +1076,7 @@
             console.error('Could not load map data:', err);
         });
 
-        L.control.layers(null, {
-            'Amap':               layerGroups.amap,
-            'ShowStart':          layerGroups.showstart,
-            'XHS':                layerGroups.xhs,
-            '3-platform BGE–available venues': layerGroups.bge,
-            'Discovery mode':     discoveryLayer
-        }, { collapsed: false, position: 'topright' }).addTo(map);
-
-        const discoveryControl = L.control({ position: 'topleft' });
-        discoveryControl.onAdd = () => {
-            const div = L.DomUtil.create('div', 'discovery-control');
-            div.innerHTML = `<label>Discovery mode</label><select id="discovery-mode">
+        const discoveryControlMarkup = `<label>Discovery mode</label><select id="discovery-mode">
                 <option value="showstart_genre">ShowStart genre</option>
                 <option value="showstart_events">ShowStart event count</option>
                 <option value="amap_similarity">Amap category–keytag BGE</option>
@@ -920,10 +1085,102 @@
                 <option value="cross_bge" selected>Cross-platform BGE</option>
             </select><select id="discovery-keyword"></select>
             <div class="layer-note">Brighter/larger = higher value. This is a discovery overlay, not a new thesis index.</div>`;
-            L.DomEvent.disableClickPropagation(div);
-            return div;
-        };
-        discoveryControl.addTo(map);
+
+        if (usesTencentBasemap) {
+            const controls = document.createElement('div');
+            controls.className = 'gl-map-controls';
+
+            const zoomControl = document.createElement('div');
+            zoomControl.className = 'gl-zoom-control';
+            zoomControl.innerHTML = '<button type="button" aria-label="Zoom in">+</button><button type="button" aria-label="Zoom out">−</button>';
+            const [zoomInButton, zoomOutButton] = zoomControl.querySelectorAll('button');
+            zoomInButton.addEventListener('click', () => map.setZoom(Math.min(20, map.getZoom() + 1)));
+            zoomOutButton.addEventListener('click', () => map.setZoom(Math.max(3, map.getZoom() - 1)));
+            controls.appendChild(zoomControl);
+
+            const discoveryControl = document.createElement('div');
+            discoveryControl.className = 'discovery-control gl-discovery-control';
+            discoveryControl.innerHTML = discoveryControlMarkup;
+            controls.appendChild(discoveryControl);
+
+            const layerControl = document.createElement('div');
+            layerControl.className = 'gl-layer-control';
+            const controlLayers = [
+                ...platformLegendItems.map((item, index) => ({ key: Object.keys(layerGroups)[index], label: item.label, group: item.group })),
+                { key: 'discovery', label: 'Discovery mode', group: discoveryLayer }
+            ];
+            layerControl.innerHTML = controlLayers.map(item =>
+                `<label><input type="checkbox" data-layer="${item.key}" checked> ${item.label}</label>`
+            ).join('');
+            layerControl.addEventListener('change', event => {
+                const input = event.target.closest('input[data-layer]');
+                if (!input) return;
+                const item = controlLayers.find(candidate => candidate.key === input.dataset.layer);
+                if (!item) return;
+                item.group.visible = input.checked;
+                item.group.raw.setVisible(input.checked);
+                closeTencentTooltip();
+                updateLegend();
+                discoveryState.layersToggled.add(item.key);
+                track('map_layer_toggled', { platform_layer: item.key, enabled: input.checked });
+                markDiscovery();
+            });
+            controls.appendChild(layerControl);
+
+            legendContainer = document.createElement('div');
+            legendContainer.className = 'legend gl-legend';
+            controls.appendChild(legendContainer);
+            document.getElementById('interactive-map').appendChild(controls);
+        } else {
+            L.control.layers(null, {
+                'Amap': layerGroups.amap.raw,
+                'ShowStart': layerGroups.showstart.raw,
+                'XHS': layerGroups.xhs.raw,
+                '3-platform BGE–available venues': layerGroups.bge.raw,
+                'Discovery mode': discoveryLayer.raw
+            }, { collapsed: false, position: 'topright' }).addTo(map);
+
+            const discoveryControl = L.control({ position: 'topleft' });
+            discoveryControl.onAdd = () => {
+                const div = L.DomUtil.create('div', 'discovery-control');
+                div.innerHTML = discoveryControlMarkup;
+                L.DomEvent.disableClickPropagation(div);
+                return div;
+            };
+            discoveryControl.addTo(map);
+
+            const legend = L.control({ position: 'bottomright' });
+            legend.onAdd = () => {
+                const div = L.DomUtil.create('div', 'legend');
+                legendContainer = div;
+                updateLegend();
+                return div;
+            };
+            legend.addTo(map);
+
+            const layerNameByGroup = new Map([
+                ...Object.entries(layerGroups).map(([name, group]) => [group.raw, name]),
+                [discoveryLayer.raw, 'discovery']
+            ]);
+            map.on('overlayadd overlayremove', event => {
+                updateLegend();
+                const platformLayer = layerNameByGroup.get(event.layer) || 'unknown';
+                discoveryState.layersToggled.add(platformLayer);
+                track('map_layer_toggled', {
+                    platform_layer: platformLayer,
+                    enabled: event.type === 'overlayadd'
+                });
+                markDiscovery();
+            });
+
+            map.on('popupopen', event => {
+                const markerData = event.popup?._source?.analyticsData;
+                if (!markerData) return;
+                discoveryState.venuesOpened.add(markerData.venue_id);
+                track('venue_popup_opened', markerData);
+                markDiscovery();
+            });
+        }
 
         const mode    = document.getElementById('discovery-mode');
         const keyword = document.getElementById('discovery-keyword');
@@ -953,50 +1210,17 @@
         });
         refreshDiscoveryControls();
 
-        const legend = L.control({ position: 'bottomright' });
-        legend.onAdd = () => {
-            const div = L.DomUtil.create('div', 'legend');
-            legendContainer = div;
-            updateLegend();
-            return div;
-        };
-        legend.addTo(map);
-        const layerNameByGroup = new Map([
-            ...Object.entries(layerGroups).map(([name, group]) => [group, name]),
-            [discoveryLayer, 'discovery']
-        ]);
-        map.on('overlayadd overlayremove', event => {
-            updateLegend();
-            const platformLayer = layerNameByGroup.get(event.layer) || 'unknown';
-            discoveryState.layersToggled.add(platformLayer);
-            track('map_layer_toggled', {
-                platform_layer: platformLayer,
-                enabled: event.type === 'overlayadd'
-            });
-            markDiscovery();
-        });
-
-        map.on('popupopen', event => {
-            const markerData = event.popup?._source?.analyticsData;
-            if (!markerData) return;
-            discoveryState.venuesOpened.add(markerData.venue_id);
-            track('venue_popup_opened', markerData);
-            markDiscovery();
-        });
-
-        let mapInteractionPending = false;
-        const mapContainer = map.getContainer();
-        ['pointerdown', 'wheel', 'keydown'].forEach(eventName => {
-            mapContainer.addEventListener(eventName, () => { mapInteractionPending = true; }, { passive: eventName !== 'keydown' });
-        });
-        map.on('moveend zoomend', () => {
-            if (!mapInteractionPending) return;
-            mapInteractionPending = false;
-            if (!discoveryState.mapExplored) {
-                discoveryState.mapExplored = true;
+        const mapContainer = usesTencentBasemap ? document.getElementById('tencent-basemap') : map.getContainer();
+        const markMapExplored = () => {
+            if (discoveryState.mapExplored) return;
+            discoveryState.mapExplored = true;
+            window.setTimeout(() => {
                 track('map_explored', { zoom_level: map.getZoom() });
                 markDiscovery();
-            }
+            }, 0);
+        };
+        ['pointerdown', 'wheel', 'keydown'].forEach(eventName => {
+            mapContainer.addEventListener(eventName, markMapExplored, { passive: eventName !== 'keydown', once: true });
         });
 
         const navToggle = document.querySelector('.nav-toggle');
@@ -1005,7 +1229,10 @@
             navToggle.setAttribute('aria-expanded', String(!collapsed));
             navToggle.setAttribute('aria-label', collapsed ? 'Expand section navigation' : 'Collapse section navigation');
             navToggle.textContent = collapsed ? '›' : '‹';
-            setTimeout(() => map.invalidateSize(), 230);
+            setTimeout(() => {
+                if (usesTencentBasemap) map.resize?.();
+                else map.invalidateSize();
+            }, 230);
         };
         navToggle.addEventListener('click', () => {
             setNavCollapsed(!document.body.classList.contains('nav-collapsed'));
