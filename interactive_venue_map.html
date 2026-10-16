@@ -6,6 +6,7 @@
     <title>Shanghai Venues Interactive Map</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="./tencent-map-config.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #f5f5f5; }
@@ -49,9 +50,16 @@
         // Initialize map centered on Shanghai
         const map = L.map('map').setView([31.23, 121.47], 11);
 
-        // Add CartoDB Positron basemap
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '© CartoDB contributors',
+        // Use keyed CARTO Positron when configured; otherwise use the OSM standard service.
+        const cartoBasemapKey = window.SHANGHAI_VENUE_MAP_CONFIG?.cartoBasemapKey?.trim();
+        const tileUrl = cartoBasemapKey
+            ? `https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png?key=${encodeURIComponent(cartoBasemapKey)}`
+            : 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const attribution = cartoBasemapKey
+            ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attribution/">CARTO</a>'
+            : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        L.tileLayer(tileUrl, {
+            attribution,
             maxZoom: 20
         }).addTo(map);
 
