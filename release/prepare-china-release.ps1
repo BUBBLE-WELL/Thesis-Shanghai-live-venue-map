@@ -39,11 +39,6 @@ if ([string]::IsNullOrWhiteSpace($tencentMapKey)) {
     throw 'Tencent Map browser key is empty.'
 }
 
-$cartoKeyLine = Get-Content -LiteralPath $resolvedEnvFile -Encoding UTF8 |
-    Where-Object { $_ -match '^\s*(CARTO_BASEMAP_API|CARTO_BASEMAP_KEY)\s*=' } |
-    Select-Object -First 1
-$cartoBasemapKey = if ($cartoKeyLine) { ($cartoKeyLine -split '=', 2)[1].Trim().Trim('"').Trim("'") } else { '' }
-
 $manifestEntries = Get-Content -LiteralPath $manifestPath -Encoding UTF8 |
     ForEach-Object { $_.Trim() } |
     Where-Object { $_ -and -not $_.StartsWith('#') }
@@ -68,12 +63,10 @@ foreach ($relativePath in $manifestEntries) {
 
 $configPath = Join-Path $resolvedOutputRoot 'tencent-map-config.js'
 $escapedKey = $tencentMapKey.Replace('\', '\\').Replace("'", "\'")
-$escapedCartoKey = $cartoBasemapKey.Replace('\', '\\').Replace("'", "\'")
 $config = @"
 // Generated public browser configuration. Restrict this key to the production domain.
 window.SHANGHAI_VENUE_MAP_CONFIG = Object.freeze({
-    tencentMapKey: '$escapedKey',
-    cartoBasemapKey: '$escapedCartoKey'
+    tencentMapKey: '$escapedKey'
 });
 "@
 [System.IO.File]::WriteAllText($configPath, $config, $utf8NoBom)
@@ -99,5 +92,4 @@ if ($files.Count -ne $manifestEntries.Count) {
     OutputRoot = $resolvedOutputRoot
     FileCount = $files.Count
     TencentKeyConfigured = $true
-    CartoKeyConfigured = -not [string]::IsNullOrWhiteSpace($cartoBasemapKey)
 } | ConvertTo-Json

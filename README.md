@@ -5,7 +5,7 @@
 
 Open `index.html` in a browser to explore the formal Shanghai venue inventory (n=67). It is the canonical GitHub Pages entrypoint; `interactive_venue_map.html` is retained only as a legacy development copy.
 
-Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/`. GitHub Pages uses Leaflet with keyed CARTO Positron when configured and a muted OpenStreetMap standard fallback otherwise. The China mirror uses a single Tencent GL engine for the basemap, research markers, discovery overlay, and popup interactions. It converts the WGS84 research coordinates to GCJ-02 at runtime and limits Tencent's vector features to `base` and `label` beneath a light colour mask. This preserves useful geographic captions and smooth native GL navigation without changing the underlying venue data.
+Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/`. GitHub Pages uses Leaflet with a muted OpenStreetMap standard basemap. The China mirror uses a single Tencent GL engine for the basemap, research markers, discovery overlay, and popup interactions. It converts the WGS84 research coordinates to GCJ-02 at runtime and limits Tencent's vector features to `base` and `label` beneath a light colour mask. This preserves useful geographic captions and smooth native GL navigation without changing the underlying venue data.
 
 ## Prepare the China release
 
@@ -17,7 +17,7 @@ The repository intentionally contains an empty Tencent browser-key configuration
   -OutputRoot "$env:TEMP\shanghai-venue-map-china"
 ```
 
-The environment file must contain `TENCENT_MAP_API=<browser key>` or `TENCENT_MAP_KEY=<browser key>`. It may also contain `CARTO_BASEMAP_API=<browser key>` or `CARTO_BASEMAP_KEY=<browser key>`. Restrict browser keys to the intended production domains. On `jiyiji.cn`, the page selects Tencent automatically; append `?basemap=tencent` for local QA, `?basemap=carto` for keyed CARTO (or the OSM fallback when no key is configured), or `?basemap=osm` to force OSM. The packager copies only `release/china-public-files.txt`, injects configured keys into the output artifact, and runs the public-content leak scan.
+The environment file must contain `TENCENT_MAP_API=<browser key>` or `TENCENT_MAP_KEY=<browser key>`. Restrict that browser key to the production domain in the Tencent console. On `jiyiji.cn`, the page selects Tencent automatically; append `?basemap=tencent` for local QA or `?basemap=osm` to force the overseas fallback. The packager copies only `release/china-public-files.txt`, injects the Tencent key into the output artifact, and runs the public-content leak scan.
 
 The Mengtian boundary counter-case is excluded from the formal 67-venue display. The `data/` folder contains clean derived tables only; no raw screenshots, OCR, or observation long tables are bundled. BGE-derived text and venue summaries are included for development inspection, but raw embedding dumps are not.
 

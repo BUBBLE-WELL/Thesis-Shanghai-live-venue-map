@@ -682,10 +682,9 @@
         const initialView = { lat: 31.23, lng: 121.47, zoom: 11 };
         const queryBasemap = new URLSearchParams(window.location.search).get('basemap');
         const wantsTencentBasemap = queryBasemap === 'tencent' ||
-            (!['carto', 'osm'].includes(queryBasemap) && window.location.hostname === 'jiyiji.cn');
+            (queryBasemap !== 'osm' && window.location.hostname === 'jiyiji.cn');
         const runtimeConfig = window.SHANGHAI_VENUE_MAP_CONFIG || {};
         const tencentMapKey = runtimeConfig.tencentMapKey?.trim();
-        const cartoBasemapKey = runtimeConfig.cartoBasemapKey?.trim();
 
         const outOfChina = (lat, lng) => lng < 72.004 || lng > 137.8347 || lat < 0.8293 || lat > 55.8271;
         const transformLat = (lng, lat) => {
@@ -741,10 +740,10 @@
                 document.getElementById('tencent-basemap').appendChild(document.querySelector('.basemap-mask'));
                 usesTencentBasemap = true;
             } catch (error) {
-                console.warn('Tencent basemap unavailable; using CartoDB fallback.', error);
+                console.warn('Tencent basemap unavailable; using OpenStreetMap fallback.', error);
             }
         } else if (wantsTencentBasemap) {
-            console.warn('Tencent basemap requested without a configured browser key; using CartoDB fallback.');
+            console.warn('Tencent basemap requested without a configured browser key; using OpenStreetMap fallback.');
         }
 
         const mapCoordinates = (lat, lng) => usesTencentBasemap ? wgs84ToGcj02(lat, lng) : [lat, lng];
@@ -755,20 +754,11 @@
         let basemapProvider = 'tencent-vector';
 
         if (!usesTencentBasemap) {
-            const usesCartoBasemap = Boolean(cartoBasemapKey) && queryBasemap !== 'osm';
-            const tileUrl = usesCartoBasemap
-                ? `https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png?key=${encodeURIComponent(cartoBasemapKey)}`
-                : 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-            const attribution = usesCartoBasemap
-                ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attribution/">CARTO</a>'
-                : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-            basemapProvider = usesCartoBasemap ? 'cartodb-positron' : 'openstreetmap-standard';
-            document.getElementById('interactive-map').classList.toggle('uses-osm-basemap', !usesCartoBasemap);
-            if (queryBasemap === 'carto' && !cartoBasemapKey) {
-                console.warn('CARTO basemap requested without a configured key; using OpenStreetMap fallback.');
-            }
-            L.tileLayer(tileUrl, {
-                attribution,
+            basemapProvider = 'openstreetmap-standard';
+            document.getElementById('interactive-map').classList.add('uses-osm-basemap');
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxNativeZoom: 19,
                 maxZoom: 20
             }).addTo(map);
         }
