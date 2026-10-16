@@ -6,6 +6,7 @@
     <title>Shanghai Venues — Thesis Research</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="./tencent-map-config.js"></script>
     <script src="./posthog-analytics.js" data-app-id="venue_map" data-app-version="2026-08"></script>
     <style>
         /* ── Global reset ── */
@@ -225,6 +226,29 @@
             width: 100%;
             container-type: inline-size;
         }
+        #tencent-basemap,
+        .basemap-mask {
+            display: none;
+            position: absolute;
+            inset: 0;
+        }
+        #tencent-basemap { z-index: 0; }
+        .basemap-mask {
+            z-index: 1;
+            pointer-events: none;
+            background: rgba(244, 247, 250, 0.30);
+        }
+        #tencent-basemap .tmap-zoom-control,
+        #tencent-basemap .rotate-circle { display: none !important; }
+        #interactive-map.uses-tencent-basemap #tencent-basemap,
+        #interactive-map.uses-tencent-basemap .basemap-mask { display: block; }
+        #interactive-map.uses-tencent-basemap #map {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: transparent;
+        }
+        #interactive-map.uses-tencent-basemap .leaflet-container { background: transparent; }
         .map-loading {
             position: absolute;
             z-index: 700;
@@ -511,6 +535,8 @@
          SECTION 1: INTERACTIVE MAP
     ══════════════════════════════════════════════ -->
     <section id="interactive-map">
+        <div id="tencent-basemap" aria-hidden="true"></div>
+        <div class="basemap-mask" aria-hidden="true"></div>
         <div id="map"></div>
         <div id="map-loading" class="map-loading" role="status"><span>Loading map data…</span></div>
     </section>
@@ -554,6 +580,7 @@
          MAP SCRIPT (preserved from index.html)
     ══════════════════════════════════════════════ -->
     <script>
+        (async () => {
         const track = (eventName, properties = {}) => window.QingAnalytics?.capture(eventName, properties);
         const mapLoadStartedAt = performance.now();
         const discoveryState = {
@@ -577,15 +604,94 @@
             }
         };
 
-        // Initialize map centered on Shanghai
-        const map = L.map('map').setView([31.23, 121.47], 11);
-        track('map_initialized', { initial_zoom: 11 });
+        const initialView = { lat: 31.23, lng: 121.47, zoom: 11 };
+        const queryBasemap = new URLSearchParams(window.location.search).get('basemap');
+        const wantsTencentBasemap = queryBasemap === 'tencent' ||
+            (queryBasemap !== 'carto' && window.location.hostname === 'jiyiji.cn');
+        const tencentMapKey = window.SHANGHAI_VENUE_MAP_CONFIG?.tencentMapKey?.trim();
 
-        // Add CartoDB Positron basemap
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '© CartoDB contributors',
-            maxZoom: 20
-        }).addTo(map);
+        const outOfChina = (lat, lng) => lng < 72.004 || lng > 137.8347 || lat < 0.8293 || lat > 55.8271;
+        const transformLat = (lng, lat) => {
+            let value = -100 + 2 * lng + 3 * lat + 0.2 * lat * lat + 0.1 * lng * lat + 0.2 * Math.sqrt(Math.abs(lng));
+            value += (20 * Math.sin(6 * lng * Math.PI) + 20 * Math.sin(2 * lng * Math.PI)) * 2 / 3;
+            value += (20 * Math.sin(lat * Math.PI) + 40 * Math.sin(lat / 3 * Math.PI)) * 2 / 3;
+            return value + (160 * Math.sin(lat / 12 * Math.PI) + 320 * Math.sin(lat * Math.PI / 30)) * 2 / 3;
+        };
+        const transformLng = (lng, lat) => {
+            let value = 300 + lng + 2 * lat + 0.1 * lng * lng + 0.1 * lng * lat + 0.1 * Math.sqrt(Math.abs(lng));
+            value += (20 * Math.sin(6 * lng * Math.PI) + 20 * Math.sin(2 * lng * Math.PI)) * 2 / 3;
+            value += (20 * Math.sin(lng * Math.PI) + 40 * Math.sin(lng / 3 * Math.PI)) * 2 / 3;
+            return value + (150 * Math.sin(lng / 12 * Math.PI) + 300 * Math.sin(lng / 30 * Math.PI)) * 2 / 3;
+        };
+        const wgs84ToGcj02 = (lat, lng) => {
+            if (outOfChina(lat, lng)) return [lat, lng];
+            const a = 6378245;
+            const ee = 0.006693421622965943;
+            let dLat = transformLat(lng - 105, lat - 35);
+            let dLng = transformLng(lng - 105, lat - 35);
+            const radLat = lat / 180 * Math.PI;
+            let magic = Math.sin(radLat);
+            magic = 1 - ee * magic * magic;
+            const sqrtMagic = Math.sqrt(magic);
+            dLat = dLat * 180 / ((a * (1 - ee)) / (magic * sqrtMagic) * Math.PI);
+            dLng = dLng * 180 / (a / sqrtMagic * Math.cos(radLat) * Math.PI);
+            return [lat + dLat, lng + dLng];
+        };
+
+        const loadTencentSdk = key => new Promise((resolve, reject) => {
+            if (window.TMap) { resolve(window.TMap); return; }
+            const script = document.createElement('script');
+            script.src = `https://map.qq.com/api/gljs?v=1.exp&key=${encodeURIComponent(key)}`;
+            script.onload = () => resolve(window.TMap);
+            script.onerror = () => reject(new Error('Tencent Map SDK could not be loaded'));
+            document.head.appendChild(script);
+        });
+
+        let tencentMap = null;
+        let usesTencentBasemap = false;
+        if (wantsTencentBasemap && tencentMapKey) {
+            try {
+                const TMap = await loadTencentSdk(tencentMapKey);
+                const [centerLat, centerLng] = wgs84ToGcj02(initialView.lat, initialView.lng);
+                document.getElementById('interactive-map').classList.add('uses-tencent-basemap');
+                tencentMap = new TMap.Map(document.getElementById('tencent-basemap'), {
+                    center: new TMap.LatLng(centerLat, centerLng),
+                    zoom: initialView.zoom,
+                    viewMode: '2D',
+                    baseMap: { type: 'vector', features: ['base'] }
+                });
+                usesTencentBasemap = true;
+            } catch (error) {
+                console.warn('Tencent basemap unavailable; using CartoDB fallback.', error);
+            }
+        } else if (wantsTencentBasemap) {
+            console.warn('Tencent basemap requested without a configured browser key; using CartoDB fallback.');
+        }
+
+        const mapCoordinates = (lat, lng) => usesTencentBasemap ? wgs84ToGcj02(lat, lng) : [lat, lng];
+        const [initialLat, initialLng] = mapCoordinates(initialView.lat, initialView.lng);
+        const map = L.map('map').setView([initialLat, initialLng], initialView.zoom);
+        const basemapProvider = usesTencentBasemap ? 'tencent-vector' : 'cartodb-positron';
+        track('map_initialized', { initial_zoom: initialView.zoom, basemap_provider: basemapProvider });
+
+        if (usesTencentBasemap) {
+            let syncFrame = null;
+            const syncTencentView = () => {
+                if (syncFrame !== null) return;
+                syncFrame = window.requestAnimationFrame(() => {
+                    syncFrame = null;
+                    const center = map.getCenter();
+                    tencentMap.setCenter(new window.TMap.LatLng(center.lat, center.lng));
+                    tencentMap.setZoom(map.getZoom());
+                });
+            };
+            map.on('move zoom resize', syncTencentView);
+        } else {
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '© CartoDB contributors',
+                maxZoom: 20
+            }).addTo(map);
+        }
 
         // Marker styles
         const stylesByLayer = {
@@ -746,9 +852,10 @@
                 </div>`;
                 const coords    = feature.geometry.coordinates;
                 const genreText = showstart[id]?.genre_names || '';
+                const [mapLat, mapLng] = mapCoordinates(coords[1], coords[0]);
                 discoveryRecords.push({
                     id, name: n.canonical_name_en || p.display_name,
-                    lat: coords[1], lng: coords[0],
+                    lat: mapLat, lng: mapLng,
                     genres: genreText.split('|').filter(Boolean),
                     eventCount: showstart[id]?.event_count || d.showstart_event_count,
                     amapCosine: a?.category_keytag_cosine,
@@ -761,7 +868,7 @@
                                     layer === 'showstart' ? d.has_showstart === '1' :
                                                             d.has_xhs === '1' || Boolean(x);
                     if (!present) return;
-                    const marker = L.circleMarker([coords[1], coords[0]], stylesByLayer[layer]);
+                    const marker = L.circleMarker([mapLat, mapLng], stylesByLayer[layer]);
                     marker.analyticsData = {
                         venue_id: id,
                         platform_layer: layer,
@@ -1007,6 +1114,11 @@
         }, { threshold: [0.35] });
         document.querySelectorAll('.analysis-figure[data-figure-id]').forEach(figure => figureObserver.observe(figure));
 
+        })().catch(error => {
+            const mapLoading = document.getElementById('map-loading');
+            if (mapLoading) mapLoading.querySelector('span').textContent = 'Map unavailable.';
+            console.error('Could not initialize map:', error);
+        });
     </script>
 </body>
 </html>

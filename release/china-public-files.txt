@@ -2,6 +2,7 @@
 index.html
 interactive_venue_map.html
 posthog-analytics.js
+tencent-map-config.js
 assets/fig_4_5_pairwise_and_pca.png
 assets/portfolio_anchor_vs_distance.svg
 data/bge_d0_amap_text_entries.csv

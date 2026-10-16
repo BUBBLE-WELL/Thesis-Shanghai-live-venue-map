@@ -5,7 +5,19 @@
 
 Open `index.html` in a browser to explore the formal Shanghai venue inventory (n=67). It is the canonical GitHub Pages entrypoint; `interactive_venue_map.html` is retained only as a legacy development copy.
 
-Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/` and Leaflet/CartoDB from the internet, so an internet connection is required for the basemap and Leaflet library.
+Use the layer control to switch between Amap, ShowStart, XHS, and cross-platform BGE. Click a marker for venue-level fields. The map uses the bundled CSV/GeoJSON files in `data/`. GitHub Pages uses Leaflet with CartoDB Positron. The China mirror keeps the Leaflet interaction and research layers but places them over a Tencent vector basemap, converts the WGS84 research coordinates to GCJ-02 at runtime, and limits Tencent's vector features to `base` beneath a light colour mask. This reduces visual noise without changing the underlying venue data.
+
+## Prepare the China release
+
+The repository intentionally contains an empty Tencent browser-key configuration. Generate a deployable, manifest-limited artifact from a local environment file instead of committing the key:
+
+```powershell
+& .\release\prepare-china-release.ps1 `
+  -EnvFile "D:\MY\Thesis\interactive_venue_map_standalone\env.txt" `
+  -OutputRoot "$env:TEMP\shanghai-venue-map-china"
+```
+
+The environment file must contain `TENCENT_MAP_API=<browser key>` or `TENCENT_MAP_KEY=<browser key>`. Restrict that browser key to the production domain in the Tencent console. On `jiyiji.cn`, the page selects Tencent automatically; append `?basemap=tencent` for local QA or `?basemap=carto` to force the overseas fallback. The packager copies only `release/china-public-files.txt`, injects the key into the output artifact, and runs the public-content leak scan.
 
 The Mengtian boundary counter-case is excluded from the formal 67-venue display. The `data/` folder contains clean derived tables only; no raw screenshots, OCR, or observation long tables are bundled. BGE-derived text and venue summaries are included for development inspection, but raw embedding dumps are not.
 
